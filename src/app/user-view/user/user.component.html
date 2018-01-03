@@ -1,0 +1,16 @@
+<div *ngIf="user$ | async; let user; else loading" class="container">
+  <header class="header-container">
+    <div>
+      <h1>{{user.name}}</h1>
+    </div>
+    <div>
+      <img src="/assets/pictures/{{user.avatarImageUrl}}" alt="avatar" class="user-img">
+    </div>
+  </header>
+  <div class="following-container">
+    <button class="simple-btn">0 Following</button>
+    <button class="simple-btn">0 Followerss</button>
+  </div>
+  <button class="follow-button">Follow</button>  
+</div>
+<ng-template #loading>Loading...</ng-template>

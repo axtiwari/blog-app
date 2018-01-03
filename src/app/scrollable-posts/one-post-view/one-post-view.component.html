@@ -1,0 +1,19 @@
+<div class="inner-container">
+  <article class="post-component" *ngIf="post$ | async; let post; else loading">
+    <header>
+        <blog-person-data [user]="post.user"></blog-person-data>
+    </header>
+    <section>
+      <h2>{{post.topic}}</h2>
+      <span>Posted on: {{post.date}}</span>
+      <img src="/assets/pictures/{{post.pictureUrl[0]}}" alt="post-picture">
+      <div [innerHtml]="post.descriptionHtml"></div>
+      <p>{{post.hashtags}}</p>
+    </section>
+    <footer>
+        <h3>Comments:</h3>
+        <p>{{post.comments}}</p>
+    </footer>
+  </article>
+  <ng-template #loading>Loading...</ng-template>
+</div>

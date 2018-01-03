@@ -1,0 +1,139 @@
+/*-----slider-----*/
+.slider-component{
+  height: 100vh;
+  padding-top: 50px;
+    color: white;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slider-component__slide{
+    width: 100%;
+    height:100%;
+    display: none;
+    background-color: grey;
+    background-position: center;
+    background-size: cover;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  
+  .slider-component__slide>p{
+    width: 50%;
+    padding: 2%;
+    position: relative;
+  }
+  
+  .slider-component__slide:nth-of-type(even){
+    align-items: flex-end;
+  }
+  
+  .slider-component__slide:nth-of-type(even)>p{
+    text-align: right;
+  }
+  
+  .slider-component__slide>p:first-of-type{
+    font-size: 200%;
+  }
+  
+  .slider-component__slide:before{
+    content: '';
+    background-color:black;
+    position: absolute;
+    width:      100%;
+    height:     100%;
+    opacity: 0.7;
+  }
+  
+  .slider-component__slide:nth-of-type(odd):before{
+    transform:  skewX(-18deg);
+    left:     -50%;
+  }
+  
+  .slider-component__slide:nth-of-type(even):before{
+    transform:  skewX(-18deg);
+    overflow: hidden;
+    right: -50%;
+  }
+  
+  .slider-component>input{
+    display: none;
+  }
+  
+  #first-slide+div.slider-component__slide{
+    background-image: url("/assets/pictures/relax-time.jpeg");
+  }
+  
+  #second-slide+div.slider-component__slide{
+    background-image: url("/assets/pictures/plants.jpg");
+  }
+  
+  #third-slide+div.slider-component__slide{
+    background-image: url("/assets/pictures/pexels-photo-704981.jpeg");
+  }
+  
+  
+  .slider-component>input:checked+div.slider-component__slide{
+    display: flex;
+  }
+  
+  .slider-component__slide-navigation{
+    display: flex;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  nav.slider-component__slide-navigation label{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  nav.slider-component__slide-navigation label:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0,0);
+    transition: 300ms;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0;
+  }
+  
+  nav.slider-component__slide-navigation label:hover:before{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1,1);
+  }
+  
+  .slider-component>input:checked:nth-of-type(1)~nav.slider-component__slide-navigation label:nth-of-type(1):before,
+  .slider-component>input:checked:nth-of-type(2)~nav.slider-component__slide-navigation label:nth-of-type(2):before,
+  .slider-component>input:checked:nth-of-type(3)~nav.slider-component__slide-navigation label:nth-of-type(3):before{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1,1);
+  }
+  /*-----end of the slider-----*/
+  .slider-component__registration-btn{
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.8);
+
+  }
+
+  .slider-component__registration-btn:hover{
+    background-color: grey;
+  }

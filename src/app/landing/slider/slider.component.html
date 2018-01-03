@@ -1,0 +1,31 @@
+<div class="slider-component">
+      <!-- first slide -->
+      <input type="radio" name="slider" id="first-slide" [checked]="checkedIndex === 0">
+      <div class="slider-component__slide" (click)="nextSlide()">
+        <p>Tell what is in your mind</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa dolores, similique fuga delectus eveniet, soluta saepe accusantium maiores ullam et molestias quaerat possimus. Harum perferendis reiciendis nihil nobis minima architecto
+          ipsum quod delectus esse excepturi vitae, error provident ad.</p>
+      </div>
+      <!-- second slide -->
+      <input type="radio" name="slider" id="second-slide" [checked]="checkedIndex === 1">
+      <div class="slider-component__slide" (click)="nextSlide()">
+        <p>Show your interests</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa dolores, similique fuga delectus eveniet, soluta saepe accusantium maiores ullam et molestias quaerat possimus. Harum perferendis reiciendis nihil nobis minima architecto
+          ipsum quod delectus esse excepturi vitae, error provident ad.</p>
+      </div>
+      <!-- third slide -->
+      <input type="radio" name="slider" id="third-slide" [checked]="checkedIndex === 2">
+      <div class="slider-component__slide" (click)="nextSlide()">
+        <p>Share your skills</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci culpa dolores, similique fuga delectus eveniet, soluta saepe accusantium maiores ullam et molestias quaerat possimus. Harum perferendis reiciendis nihil nobis minima architecto
+          ipsum quod delectus esse excepturi vitae, error provident ad.</p>
+      </div>
+      <!-- slider navigation -->
+      <nav class="slider-component__slide-navigation">
+        <label for="first-slide"></label>
+        <label for="second-slide"></label>
+        <label for="third-slide"></label>
+      </nav>
+      <button class="slider-component__registration-btn">Register now!</button>
+    </div>
+

@@ -1,0 +1,38 @@
+<header class="header-component">
+  <a class="header-component__logo-container" href="#">
+    <img class="header-component__logo" src="/assets/pictures/logo.png" alt="logo">
+  </a>
+  <nav class="header-component__navigation" (click)="showMenu()">
+    <ul class="nav-items-component">
+      <li [ngClass]="{'nav-items-component__nav-btn': true, 'nav-items-component__menu': isMenuVisible}">
+        <a class="nav-items-component__nav-content" href="#home">Home</a>
+      </li>
+      <li [ngClass]="{'nav-items-component__nav-btn': true, 'nav-items-component__menu': isMenuVisible}">
+        <a class="nav-items-component__nav-content" href="#blogsView">Read best blogs</a>
+      </li>
+      <li [ngClass]="{'nav-items-component__nav-btn': true, 'nav-items-component__menu': isMenuVisible}">
+        <a class="nav-items-component__nav-content" href="#contact">About us</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="button-set">
+    <button class="button-search" (click)="showSearch()">
+      <svg [ngClass]="{'button-search__show': !isSearchVisible, 'button-search__hide': isSearchVisible}" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 451 451" xml:space="preserve">
+      <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3   s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4   C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3   s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"
+      />
+    </svg>
+    <svg [ngClass]="{'button-search__show': isSearchVisible, 'button-search__hide': !isSearchVisible}" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.112 31.112" xml:space="preserve">
+      <polygon points="31.112,1.414 29.698,0 15.556,14.142 1.414,0 0,1.414 14.142,15.556 0,29.698 1.414,31.112 15.556,16.97   29.698,31.112 31.112,29.698 16.97,15.556 "
+      />
+    </svg>
+  </button>
+    <button class="header-component__simple-button">Sign up</button>
+    <button class="header-component_button">Sign in</button>
+  </div>
+</header>
+<div *ngIf="isSearchVisible" class="header-component__search">
+  <input class="search-field" type="text" placeholder="Input search keywords.." autofocus>
+  <button class="submit-btn">Search</button>
+</div>

@@ -1,0 +1,40 @@
+.contact-component{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.7);
+    background-color: #84907d;
+}
+
+.contact-component__info-container{
+    width: 50%;
+    height: 100%;
+    padding: 50px;
+}
+
+.contact-component__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+blog-map{
+    width: 50%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 690px){
+    .contact-component{
+        flex-wrap: wrap;
+    }
+    .contact-component__info-container{
+        width: 100%;
+        height: 50%;
+    }
+    blog-map{
+        width: 100%;
+        height: 50%;
+    }
+    
+}

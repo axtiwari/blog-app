@@ -1,0 +1,19 @@
+<a [routerLink]="['/posts', postData.id]" class="post-component">
+  <div class="post-component__main-img" [ngStyle]="{'background-image': 'url(/assets/pictures/' + postData.pictureUrl[0] + ')'}"></div>
+  <article class="article-component">
+    <header class="article-component__header">
+      <blog-person-data [user]="postData.user"></blog-person-data>
+      <div class="content-article__post-date">
+        <span class="content-article__date-header">Posted on:</span>
+        <span>{{postData.date | date: "longDate"}}</span>
+      </div>
+    </header>
+    <section class="article-component__section">
+      <h5 class="article-component__topic">{{postData.topic}}</h5>
+      <p class="article-component__paragraph">{{postData.descriptionHtml | stripHtml | cutContent}}</p>
+      <footer class="article-component__hashtags">
+        <button class="article-component__hashtag-item" *ngFor = "let tag of postData.hashtags">{{tag}}</button>
+      </footer>
+    </section>
+  </article>
+</a>

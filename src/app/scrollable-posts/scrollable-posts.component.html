@@ -1,0 +1,4 @@
+<div infiniteScroll [infiniteScrollDistance]="0.5"
+(scrolled)="onScroll()">
+  <blog-post-list [posts]="posts$ | async"></blog-post-list>
+</div> 

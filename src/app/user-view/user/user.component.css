@@ -1,0 +1,48 @@
+.container{
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-img{
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+}
+
+.simple-btn{
+    border-width: 0;
+    border-bottom: 2px solid transparent;
+    padding: 5px 2px;
+    border-radius: 0;
+    color: grey;
+}
+
+.simple-btn:hover{
+    border-bottom-color: black; 
+    color: black
+}
+
+.follow-button{
+margin-top: 10px;
+background-color:#ea5d5d42;
+border-color: black;
+}
+
+.follow-button:hover{
+    background-color: #fe000096;
+}
+
+@media only screen and (max-width: 690px){
+    .container{
+        width: 100%;
+    }
+}
