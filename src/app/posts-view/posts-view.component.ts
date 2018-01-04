@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'blog-posts-view',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
+  searchQuery$: Observable<string>;
 
   ngOnInit() {
+    this.searchQuery$ = this.route
+    .queryParams.map((params) => params.q);
   }
 
 }

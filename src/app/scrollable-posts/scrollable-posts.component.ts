@@ -18,6 +18,8 @@ export class ScrollablePostsComponent implements OnInit {
 
   @Input() userId?: number;
 
+  @Input() searchQuery?: string;
+
   posts$: Observable<IPost[]>;
 
   private page = 1;
@@ -29,7 +31,7 @@ export class ScrollablePostsComponent implements OnInit {
   ngOnInit() {
     this.posts$ = this.subject
       .switchMap((page: number) => {
-        return this.postService.getPosts(page, 10, this.userId);
+        return this.postService.getPosts(page, 10, this.userId, this.searchQuery);
       })
       .do((posts: IPost[]) => {
         if (posts.length < 10) {

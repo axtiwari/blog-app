@@ -1,0 +1,4 @@
+<div class="header-component__search">
+    <input (keyup.enter)="onSearch(searchInput.value);" #searchInput class="search-field" type="text" placeholder="Input search keywords.." autofocus>
+    <button (click)="onSearch(searchInput.value);" class="submit-btn">Search</button>
+</div>

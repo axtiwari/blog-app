@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'blog-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   isMenuVisible = false;
   isSearchVisible = false;
@@ -16,16 +17,17 @@ export class HeaderComponent implements OnInit {
   }
 
   showMenu() {
-    if (this.isSearchVisible) {
-      this.showSearch();
-    }
+    this.isSearchVisible = false;
     this.isMenuVisible = !this.isMenuVisible;
   }
 
   showSearch() {
-    if ( this.isMenuVisible) {
-      this.showMenu();
-    }
+    this.isMenuVisible = false;
     this.isSearchVisible = !this.isSearchVisible;
+  }
+
+  searchPosts(keyword: string) {
+    this.router.navigate(['posts'], { queryParams: { q: keyword } });
+    this.isSearchVisible = false;
   }
 }

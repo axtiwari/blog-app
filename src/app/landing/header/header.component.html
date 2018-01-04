@@ -32,7 +32,4 @@
     <button class="header-component_button">Sign in</button>
   </div>
 </header>
-<div *ngIf="isSearchVisible" class="header-component__search">
-  <input class="search-field" type="text" placeholder="Input search keywords.." autofocus>
-  <button class="submit-btn">Search</button>
-</div>
+<blog-search *ngIf="isSearchVisible" (search)="searchPosts($event)"></blog-search>

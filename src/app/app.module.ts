@@ -31,6 +31,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { UserComponent } from './user-view/user/user.component';
 import { PostsViewComponent } from './posts-view/posts-view.component';
 import { AccesModule } from './acces/acces.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AccesModule } from './acces/acces.module';
     PersonDataComponent,
     UserViewComponent,
     UserComponent,
-    PostsViewComponent
+    PostsViewComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -8,8 +8,8 @@ import { Injectable } from '@angular/core';
 export class PostService {
     private postsUrl = 'http://localhost:3000/posts';
     constructor(private http: HttpClient) { }
-    getPosts(page: number, limit: number, userId?: number): Observable<IPost[]> {
-        return this.http.get<IPost[]>(this.createPostsUrl(this.postsUrl, page, limit, userId))
+    getPosts(page: number, limit: number, userId?: number, searchQuery?: string): Observable<IPost[]> {
+        return this.http.get<IPost[]>(this.createPostsUrl(this.postsUrl, page, limit, userId, searchQuery))
             .do(data => console.log(`got ${data.length} posts from server`));
     }
 
@@ -18,8 +18,9 @@ export class PostService {
          .do(data => console.log(`got post with id: ${id} from server`));
     }
 
-    private createPostsUrl(postsUrls: string, page: number, limit: number, userId?: number): string {
+    private createPostsUrl(postsUrls: string, page: number, limit: number, userId?: number, searchQuery?: string): string {
+        const query = searchQuery ? `&q=${searchQuery}` : '';
         const userIdSegment = userId ? `userId=${userId}&` : '';
-        return `${this.postsUrl}?${userIdSegment}_page=${page}&_limit=${limit}&_sort=date&_order=desc&_expand=user`;
+        return `${this.postsUrl}?${userIdSegment}_page=${page}&_limit=${limit}&_sort=date&_order=desc&_expand=user${query}`;
     }
 }
