@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
 
   isMenuVisible = false;
   isSearchVisible = false;
+  isAccessPopupVisible = false;
 
   ngOnInit() {
   }
@@ -29,5 +30,13 @@ export class HeaderComponent implements OnInit {
   searchPosts(keyword: string) {
     this.router.navigate(['posts'], { queryParams: { q: keyword } });
     this.isSearchVisible = false;
+  }
+
+  showPopUp(): void {
+    this.isAccessPopupVisible = true;
+  }
+
+  hidePopUp(): void {
+    this.isAccessPopupVisible = false;
   }
 }

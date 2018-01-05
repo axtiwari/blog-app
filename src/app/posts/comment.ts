@@ -1,7 +1,9 @@
+import { IUser } from './user';
+
 export interface IComment {
-    commentId: number;
+    id: number;
     postId: number;
-    personName: string;
-    personId: number;
+    userId: number;
     comment: string;
+    user: IUser;
 }

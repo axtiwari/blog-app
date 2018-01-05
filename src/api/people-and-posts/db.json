@@ -6,14 +6,49 @@
             "id": 1
         },
         {
+            "name": "Anton Ukhlin",
+            "avatarImageUrl": "10882118_727730627323599_5730548296889029495_n.jpg",
+            "id": 2 
+        },
+        {
+            "name": "Yury Usmanov",
+            "avatarImageUrl": "25659611_1684247418320996_2930746576821885761_n.jpg",
+            "id": 3
+        },
+        {
             "name": "Богдана Неборак",
             "avatarImageUrl": "22489883_1501992856552250_7283079992123847482_n.jpg",
             "id": 4 
         },
         {
+            "name": "Khrystyna Zboroshenko",
+            "avatarImageUrl": "10353652_824899814198500_3551494811306832408_n.jpg",
+            "id": 5
+        },
+        {
+            "name": "Maria Matiashova",
+            "avatarImageUrl": "17458424_789588467882910_1321567539178857946_n.jpg",
+            "id": 6
+        },
+        {
+            "name": "Maksym Dvorovyi",
+            "avatarImageUrl": "23847525_1649827828372784_4889566529711462779_o.jpg",
+            "id": 7
+        },
+        {
             "name": "Nicholas Tsiunchyk",
             "avatarImageUrl": "10989373_1119478244744639_8973364488269950574_n.jpg",
             "id": 8
+        },
+        {
+            "name": "Alyona Zorina",
+            "avatarImageUrl": "12009621_10203542706687229_3773233503208396101_n.jpg",
+            "id": 9
+        },
+        {
+            "name": "Viacheslav Kravchenko",
+            "avatarImageUrl": "21558968_1117182798411954_3675049316280044010_n.jpg",
+            "id": 10
         }
     ],
     "posts": [
@@ -260,84 +295,72 @@
         {
             "id": 1,
             "postId": 1,
-            "personName": "Anton Ukhlin",
             "userId": 2,
             "comment": "Чьотка)"
         },
         {
             "id": 2,
             "postId": 3,
-            "name": "Yury Usmanov",
             "userId": 3,
             "comment": "Pretty nice article, thank you, Vanya! In addition, there are a lot of problems with drones in IHL, IHRL, that represent mirrorLY in ATO in Ukraine like how automated system, which are popular in UAVs, follow this international rules, who are responsible for targeting killing etc."
         },
         {
             "id": 3,
             "postId": 3,
-            "name": "Ivan Chaika",
             "userId": 1,
             "comment": "Thanks, I appreciate it."
         },
         {
             "id": 4,
             "postId": 4,
-            "name": "Khrystyna Zboroshenko",
             "userId": 5,
             "comment": "Погоджуюсь!)"
             },
         {
            "id": 5,
            "postId": 4,
-           "name": "Maria Matiashova",
            "userId": 6,
            "comment": "а чому думати про права людини як про людську фікцію, що дозволила нам ліпше комунікувати, неприємно?"
             },
         {
             "id": 6,
             "postId": 4,
-           "name": "Богдана Неборак",
            "userId": 4,
            "comment": "мені - бо я правник і це в основі мого світогляду як щось абсолютне. простіше думати про них як про сталу річ"
         },
         {
             "id": 7,
             "postId": 5,
-            "name": "Maksym Dvorovyi",
             "userId": 7,
             "comment": "лишилося хутко знайти когось, хто зробить красиву фоточку для посту)"
         },
         {
             "id": 8,
             "postId": 5,
-            "name": "Богдана Неборак",
             "userId": 4,
             "comment": "давай-давай!"
         },
         {
             "id": 9,
             "postId": 6,
-            "name": "Alyona Zorina",
             "userId": 9,
             "comment": "Про Албанию знала из первых рук, была в шоке./nПро медиаторов - спасибо огромное, это как раз моя нынешняя магистратура "
         },
         {
             "id": 10,
             "postId": 6,
-            "name": "Богдана Неборак",
             "userId": 4,
             "comment": "мене тут вражає не тільки те, як давати з цим раду і нав'язувати наш підхід до розуміння справедливості, нібито \"нормальний\", а те, що це поняття \"нормальності\" - моєї і чиєїсь - дуже широке у світі, а я про нього за звичкою думаю дуже вузько"
         },
         {
             "id": 11,
             "postId": 7,
-            "name": "Viacheslav Kravchenko",
             "userId": 10,
             "comment": "Якби я був AI, я б теж писав такі статті"
         },
         {
             "id": 12,
             "postId": 7,
-            "name": "Nicholas Tsiunchyk",
             "userId": 8,
             "comment": "Хах/nЩо той аі нам зробить, Слава? Покаже бекфліп? В нас все буде \"чікібрікі і в дамкі\" . "
         }

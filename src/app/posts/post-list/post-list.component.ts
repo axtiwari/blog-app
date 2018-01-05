@@ -14,6 +14,12 @@ export class PostListComponent implements OnInit {
 
   @Input() showMore = false;
 
+  @Input() showTotalCount = false;
+
+  @Input() total: number;
+
+  @Input() userId: number;
+
   ngOnInit() {
   }
 

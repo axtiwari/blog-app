@@ -12,7 +12,7 @@
     </section>
     <footer>
         <h3>Comments:</h3>
-        <p>{{post.comments}}</p>
+        <blog-comment [comment]="comment" *ngFor="let comment of (postComments$ | async)"></blog-comment>
     </footer>
   </article>
   <ng-template #loading>Loading...</ng-template>

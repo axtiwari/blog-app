@@ -30,8 +30,10 @@ import { OnePostViewComponent } from './scrollable-posts/one-post-view/one-post-
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserComponent } from './user-view/user/user.component';
 import { PostsViewComponent } from './posts-view/posts-view.component';
-import { AccesModule } from './acces/acces.module';
 import { SearchComponent } from './search/search.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentsService } from './posts/comments.service';
+import { AccessViewComponent } from './access/acces-view/access-view.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { SearchComponent } from './search/search.component';
     UserViewComponent,
     UserComponent,
     PostsViewComponent,
-    SearchComponent
+    SearchComponent,
+    CommentComponent,
+    AccessViewComponent
   ],
   imports: [
     BrowserModule,
@@ -70,12 +74,12 @@ import { SearchComponent } from './search/search.component';
       { path: 'posts/:id', component: OnePostViewComponent},
       { path: 'users/:id', component: UserViewComponent}
       // { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-  ]),
-  AccesModule
+  ])
   ],
   providers: [
     PostService,
-    UserService
+    UserService,
+    CommentsService
   ],
   bootstrap: [AppComponent]
 })

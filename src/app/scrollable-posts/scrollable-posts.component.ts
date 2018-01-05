@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from '../posts/posts.service';
 import { Observable } from 'rxjs/Observable';
 import { IPost } from '../posts/post';
@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/do';
+import { IPostData } from '../posts/postData';
 
 @Component({
   selector: 'blog-scrollable-posts',
@@ -18,28 +19,42 @@ export class ScrollablePostsComponent implements OnInit {
 
   @Input() userId?: number;
 
-  @Input() searchQuery?: string;
-
-  posts$: Observable<IPost[]>;
+  @Input() searchQuery$?: Observable<string> = Observable.of('');
 
   private page = 1;
 
-  subject = new BehaviorSubject<number>(1);
-
   private isLoaded = false;
 
+  private query: string;
+
+  postData$: Observable<IPostData>;
+
+  subject = new BehaviorSubject<number>(1);
+
   ngOnInit() {
-    this.posts$ = this.subject
-      .switchMap((page: number) => {
-        return this.postService.getPosts(page, 10, this.userId, this.searchQuery);
-      })
-      .do((posts: IPost[]) => {
-        if (posts.length < 10) {
-          this.subject.complete();
-        }
-        this.isLoaded = true;
-      })
-      .scan((acc: IPost[], cur: IPost[]) => acc.concat(cur), []);
+    this.searchQuery$.subscribe((searchQuery) => {
+      this.page = 1;
+      this.query = searchQuery;
+      this.subject = new BehaviorSubject<number>(1);
+      if (searchQuery) {
+        console.log(`searched by "${searchQuery}"`);
+      }
+
+      this.postData$ = this.subject
+        .switchMap((page: number) => {
+          return this.postService.getPosts(page, 10, this.userId, this.query);
+        })
+        .do((postData: IPostData) => {
+          if (postData.result.length < 10) {
+            this.subject.complete();
+          }
+          this.isLoaded = true;
+        })
+        .scan((acc: IPostData, cur: IPostData) => {
+          return { result: acc.result.concat(cur.result), total: cur.total };
+        }, { result: [], total: null });
+    }
+    );
   }
 
   onScroll() {
