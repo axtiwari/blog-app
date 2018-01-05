@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IUser } from '../../posts/user';
 import { Observable } from 'rxjs/Observable';
-import { UserService } from '../../posts/user.service';
+import { UserService } from '../../common/services/user.service';
+import { IUser } from '../../common/interfaces/user';
 
 @Component({
   selector: 'blog-user',

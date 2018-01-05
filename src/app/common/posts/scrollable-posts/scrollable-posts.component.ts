@@ -1,12 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PostService } from '../posts/posts.service';
 import { Observable } from 'rxjs/Observable';
-import { IPost } from '../posts/post';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/scan';
 import 'rxjs/add/operator/do';
-import { IPostData } from '../posts/postData';
+import { PostService } from '../../services/posts.service';
+import { IPostData } from '../../interfaces/postData';
 
 @Component({
   selector: 'blog-scrollable-posts',

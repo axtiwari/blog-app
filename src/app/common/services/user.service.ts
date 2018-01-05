@@ -1,8 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-// import 'rxjs/add/operator/do';
 import { Injectable } from '@angular/core';
-import { IUser } from './user';
+import { IUser } from '../interfaces/user';
 
 @Injectable()
 export class UserService {

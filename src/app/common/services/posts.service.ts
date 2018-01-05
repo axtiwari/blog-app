@@ -1,10 +1,10 @@
-import { IPost } from './post';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
-import { IPostData } from './postData';
+import { IPost } from '../interfaces/post';
+import { IPostData } from '../interfaces/postData';
 
 @Injectable()
 export class PostService {

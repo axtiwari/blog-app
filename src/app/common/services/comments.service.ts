@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import { Injectable } from '@angular/core';
-import { IComment } from './comment';
+import { IComment } from '../interfaces/comment';
 
 @Injectable()
 

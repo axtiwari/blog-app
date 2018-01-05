@@ -4,36 +4,36 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 import { AppComponent } from './app.component';
-import { SliderComponent } from './landing/slider/slider.component';
-import { HeaderComponent } from './landing/header/header.component';
-import { BlogsViewSectionComponent } from './landing/blogs-view-section/blogs-view-section.component';
-import { ContactUsComponent } from './landing/contact-us/contact-us.component';
-import { FooterComponent } from './landing/footer/footer.component';
-import { PostService } from './posts/posts.service';
-import { PostComponent } from './posts/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
-import { StripHtmlPipe } from './posts/post/stripHtml.pipe';
-import { CutContentPipe } from './posts/post/cutContent.pipe';
-import { UserService } from './posts/user.service';
-import { MapComponent } from './landing/contact-us/map/map.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 
 import { AgmCoreModule } from '@agm/core';
-import { LandingComponent } from './landing/landing.component';
-import { PostListComponent } from './posts/post-list/post-list.component';
-import { PersonDataComponent } from './posts/post/person-data/person-data.component';
-import { ScrollablePostsComponent } from './scrollable-posts/scrollable-posts.component';
-import { OnePostViewComponent } from './scrollable-posts/one-post-view/one-post-view.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { UserComponent } from './user-view/user/user.component';
 import { PostsViewComponent } from './posts-view/posts-view.component';
-import { SearchComponent } from './search/search.component';
-import { CommentComponent } from './comment/comment.component';
-import { CommentsService } from './posts/comments.service';
-import { AccessViewComponent } from './access/acces-view/access-view.component';
+import { PostComponent } from './common/posts/post/post.component';
+import { PostListComponent } from './common/posts/post-list/post-list.component';
+import { PersonDataComponent } from './common/posts/post/person-data/person-data.component';
+import { SearchComponent } from './common/search/search.component';
+import { SliderComponent } from './landing-view/slider/slider.component';
+import { HeaderComponent } from './landing-view/header/header.component';
+import { BlogsViewSectionComponent } from './landing-view/blogs-view-section/blogs-view-section.component';
+import { ContactUsComponent } from './landing-view/contact-us/contact-us.component';
+import { FooterComponent } from './landing-view/footer/footer.component';
+import { MapComponent } from './landing-view/contact-us/map/map.component';
+import { LandingComponent } from './landing-view/landing.component';
+import { OnePostViewComponent } from './common/posts/one-post-view/one-post-view.component';
+import { CommentComponent } from './common/posts/comment/comment.component';
+import { ScrollablePostsComponent } from './common/posts/scrollable-posts/scrollable-posts.component';
+import { PostService } from './common/services/posts.service';
+import { UserService } from './common/services/user.service';
+import { CommentsService } from './common/services/comments.service';
+import { CutContentPipe } from './common/pipes/cutContent.pipe';
+import { StripHtmlPipe } from './common/pipes/stripHtml.pipe';
+import { AccessViewComponent } from './access-view/access-view.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,6 @@ import { AccessViewComponent } from './access/acces-view/access-view.component';
       { path: 'posts', component: PostsViewComponent },
       { path: 'posts/:id', component: OnePostViewComponent},
       { path: 'users/:id', component: UserViewComponent}
-      // { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
   ])
   ],
   providers: [

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { PostService } from '../../posts/posts.service';
-import { IPost } from '../../posts/post';
 import 'rxjs/add/operator/map';
-import { IPostData } from '../../posts/postData';
-
+import { IPost } from '../../common/interfaces/post';
+import { PostService } from '../../common/services/posts.service';
+import { IPostData } from '../../common/interfaces/postData';
 @Component({
   selector: 'blog-blogs-view-section',
   templateUrl: './blogs-view-section.component.html',

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IComment } from '../posts/comment';
-import { IUser } from '../posts/user';
+import { IComment } from '../../interfaces/comment';
 
 @Component({
   selector: 'blog-comment',

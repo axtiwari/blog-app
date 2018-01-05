@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core/src/metadata/directives';
 import { ActivatedRoute} from '@angular/router';
-import { PostService } from '../../posts/posts.service';
-import { IPost } from '../../posts/post';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { IComment } from '../../posts/comment';
-import { CommentsService } from '../../posts/comments.service';
+import { PostService } from '../../services/posts.service';
+import { CommentsService } from '../../services/comments.service';
+import { IPost } from '../../interfaces/post';
+import { IComment } from '../../interfaces/comment';
 
 @Component({
   selector: 'blog-one-post-view',

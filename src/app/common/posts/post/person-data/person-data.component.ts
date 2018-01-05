@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IUser } from '../../user';
+import { IUser } from '../../../interfaces/user';
 
 @Component({
   selector: 'blog-person-data',
