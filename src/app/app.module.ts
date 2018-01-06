@@ -34,6 +34,7 @@ import { CommentsService } from './common/services/comments.service';
 import { CutContentPipe } from './common/pipes/cutContent.pipe';
 import { StripHtmlPipe } from './common/pipes/stripHtml.pipe';
 import { AccessViewComponent } from './access-view/access-view.component';
+import { GoogleSignInButtonComponent } from './access-view/google-sign-in-button/google-sign-in-button.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AccessViewComponent } from './access-view/access-view.component';
     PostsViewComponent,
     SearchComponent,
     CommentComponent,
-    AccessViewComponent
+    AccessViewComponent,
+    GoogleSignInButtonComponent
   ],
   imports: [
     BrowserModule,

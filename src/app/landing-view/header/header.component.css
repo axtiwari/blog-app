@@ -130,16 +130,6 @@
     align-items: center;
 }
 
-.header-component__simple-button{
-    border-width: 0;
-    border-radius: 0;
-    border-bottom: 2px solid transparent;
-}
-
-.header-component__simple-button:hover{
-    border-bottom-color: black;
-    color: black;
-}
 .header-component_button {
     width: 100px;
     border-color: rgb(0, 0, 0);

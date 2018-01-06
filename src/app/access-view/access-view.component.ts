@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, AfterViewInit } from '@angular/core';
+declare let gapi: any;
 
 @Component({
   selector: 'blog-access-view',
@@ -9,14 +10,19 @@ export class AccessViewComponent implements OnInit {
 
   constructor() { }
   @Output() close = new EventEmitter();
-  @Input() btnClicked = 'signUp';
 
   ngOnInit() {
   }
 
   closePopUp(): void {
     this.close.emit();
-
   }
-}
 
+  signOut() {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+
+}
