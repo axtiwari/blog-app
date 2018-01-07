@@ -2,15 +2,15 @@
   <a class="header-component__logo-container" href="#">
     <img class="header-component__logo" src="/assets/pictures/logo.png" alt="logo">
   </a>
-  <nav class="header-component__navigation" (click)="showMenu()">
+  <nav class="header-component__navigation" (click)="showMenu()" [ngClass]="{'header-component__navigation--visibility': isMenuVisible}">
     <ul class="nav-items-component">
-      <li [ngClass]="{'nav-items-component__nav-btn': true, 'nav-items-component__menu': isMenuVisible}">
+      <li class="nav-items-component__nav-btn" >
         <a class="nav-items-component__nav-content" href="#home">Home</a>
       </li>
-      <li [ngClass]="{'nav-items-component__nav-btn': true, 'nav-items-component__menu': isMenuVisible}">
+      <li class="nav-items-component__nav-btn">
         <a class="nav-items-component__nav-content" href="#blogsView">Read best blogs</a>
       </li>
-      <li [ngClass]="{'nav-items-component__nav-btn': true, 'nav-items-component__menu': isMenuVisible}">
+      <li class="nav-items-component__nav-btn">
         <a class="nav-items-component__nav-content" href="#contact">About us</a>
       </li>
     </ul>

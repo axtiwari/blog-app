@@ -5,7 +5,6 @@
     top: 0;
     left: 0;
     z-index: 1;
-    box-sizing: border-box;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-wrap: nowrap;
@@ -17,16 +16,13 @@
 
 .header-component__logo-container {
     height: 100%;
-    /* width: 10%; */
 }
 
 .header-component__logo {
     height: 100%;
-    width: auto;
 }
 
 .header-component__navigation {
-    /* width: 60%; */
     height: 100%;
     display: flex;
     justify-content: center;
@@ -58,6 +54,7 @@
 .nav-items-component__nav-btn:hover {
     border-bottom: 4px solid black;
 }
+
 .nav-items-component__nav-content {
     width: 100%;
     display: block;
@@ -72,17 +69,21 @@
 }
 
 @media only screen and (max-width: 690px) {
-    .nav-items-component__nav-btn {
-        display: none;
-    }
     .header-component__navigation {
+        visibility: hidden;
         order: -1;
         width: 50px;
         height: 50px;
         cursor: pointer;
     }
-    .nav-items-component::before {
+
+    .header-component__navigation--visibility{
+        visibility: visible;
+    }
+
+    .header-component__navigation::before {
         content: "";
+        visibility: visible;
         box-sizing: border-box;
         height: 30px;
         width: 30px;
@@ -92,29 +93,30 @@
         top: 10px;
         left: 10px;
     }
+
     .nav-items-component {
         flex-direction: column;
+        align-items: flex-start;
         width: 100%;
         height: auto;
         background-color: rgb(255, 255, 255);
-        justify-content: flex-start;
         position: fixed;
         top: 50px;
         left: 0;
         padding: 0;
         margin: 0;
     }
-    .nav-items-component__menu {
+
+    .nav-items-component__nav-btn { 
         width: 100%;
-        display: block;
     }
-    .nav-items-component__menu:hover {
-        background-color: rgba(255, 244, 244, 0.8);
-    }
-    .nav-items-component__nav-btn:hover {
+        .nav-items-component__nav-btn:hover {
+        background-color: #d4d4d4;
         border-bottom: 4px solid transparent;
     }
+
     .nav-items-component__nav-content {
+        width: 100%;
         padding: 0 10px;
         border-right: 2px solid transparent;
     }
@@ -124,7 +126,6 @@
 /* ----------------- */
 
 .button-set{
-    /* width: 30%; */
     margin-right: 10px;
     display: flex;
     align-items: center;
