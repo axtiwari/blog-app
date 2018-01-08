@@ -36,6 +36,8 @@ import { StripHtmlPipe } from './common/pipes/stripHtml.pipe';
 import { AccessViewComponent } from './access-view/access-view.component';
 import { GoogleSignInButtonComponent } from './access-view/google-sign-in-button/google-sign-in-button.component';
 import { CurrentUserService } from './common/services/current-user.service';
+import { AuthenticationComponent } from './landing-view/header/authentication/authentication.component';
+import { UserMenuComponent } from './landing-view/header/authentication/user-menu/user-menu.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { CurrentUserService } from './common/services/current-user.service';
     SearchComponent,
     CommentComponent,
     AccessViewComponent,
-    GoogleSignInButtonComponent
+    GoogleSignInButtonComponent,
+    AuthenticationComponent,
+    UserMenuComponent
   ],
   imports: [
     BrowserModule,

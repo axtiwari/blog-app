@@ -8,9 +8,7 @@ export class CurrentUserService {
 
   constructor() { }
 
-  user$: Observable<IUser>;
-
-  subject = new BehaviorSubject<IUser>(null);
+  private subject = new BehaviorSubject<IUser>(null);
 
   set(user: IUser) {
     this.subject.next(user);
@@ -18,5 +16,9 @@ export class CurrentUserService {
 
   get(): Observable<IUser> {
     return this.subject;
+  }
+
+  signOut() {
+    this.subject.next(null);
   }
 }

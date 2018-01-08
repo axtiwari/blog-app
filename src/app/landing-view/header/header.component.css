@@ -131,15 +131,6 @@
     align-items: center;
 }
 
-.header-component_button {
-    width: 100px;
-    border-color: rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-}
-
-.header-component_button:hover {
-    background-color:rgba(255, 244, 244, 0.8);
-}
 .button-search{
     padding: 5px;
     border-color: transparent;

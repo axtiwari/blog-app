@@ -123,17 +123,3 @@
     transform: translate(-50%, -50%) scale(1,1);
   }
   /*-----end of the slider-----*/
-  .slider-component__registration-btn{
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    width: 150px;
-    background-color: rgba(0, 0, 0, 0.8);
-
-  }
-
-  .slider-component__registration-btn:hover{
-    background-color: grey;
-  }

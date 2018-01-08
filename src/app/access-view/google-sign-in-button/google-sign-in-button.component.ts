@@ -39,9 +39,7 @@ export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
        this.userService.postUser(this.createUserByGoogleProfile(profile)).subscribe((newUser: IUser) => this.user = newUser);
       }
       this.currentUserService.set(user);
-      // console.log(user);
     });
-    // console.log(profile.getName());
   }
 
   private createUserByGoogleProfile(googleProfile: any): IUser {
