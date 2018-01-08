@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { UserService } from '../../common/services/user.service';
+import { IUser } from '../../common/interfaces/user';
 declare const gapi: any;
 
 @Component({
@@ -8,7 +10,9 @@ declare const gapi: any;
 })
 export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
+
+  user: IUser;
 
   ngOnInit() {
   }
@@ -26,8 +30,16 @@ export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
 
   onSignIn(googleUser) {
     const profile = googleUser.getBasicProfile();
+    this.userService.getUserByGoogleId(profile.getId()).subscribe((user: IUser) => {
+      if (user) {
+        this.user = user;
+      } else {
+       this.userService.postUser(this.createUserByGoogleProfile(profile)).subscribe((newUser: IUser) => this.user = newUser);
+      }
+    });
+
     console.log(profile.getName());
-    console.log(profile.getImageUrl());
+    // console.log(profile.getImageUrl());
 
     // ((u, p) => {
     //     u.id            = p.getId();
@@ -47,4 +59,11 @@ export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
     // };
   }
 
+  private createUserByGoogleProfile(googleProfile: any): IUser {
+    return {
+      name: googleProfile.getName(),
+      avatarImageUrl: googleProfile.getImageUrl(),
+      googleId: googleProfile.getId()
+    };
+  }
 }
