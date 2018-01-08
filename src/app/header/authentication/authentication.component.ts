@@ -2,7 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { CurrentUserService } from '../../common/services/current-user.service';
 import { IUser } from '../../common/interfaces/user';
-declare const gapi: any;
+import { GoogleApiService } from '../../common/services/google-api-service.service';
 
 @Component({
   selector: 'blog-authentication',
@@ -11,8 +11,10 @@ declare const gapi: any;
 })
 export class AuthenticationComponent implements OnInit {
 
-  constructor(private currentUserService: CurrentUserService,
-  private zone: NgZone) { }
+  constructor(
+    private currentUserService: CurrentUserService,
+    private googleApiService: GoogleApiService,
+    private zone: NgZone) { }
 
   isAccessPopupVisible = false;
 
@@ -34,14 +36,10 @@ export class AuthenticationComponent implements OnInit {
   hidePopUp(): void {
     this.isAccessPopupVisible = false;
   }
-
-
-  signOut() {
-    const auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(() => {
+  signOut(): void {
+    this.googleApiService.signOut().then(() => {
       this.currentUserService.signOut();
       console.log('User signed out.');
     });
   }
-
 }

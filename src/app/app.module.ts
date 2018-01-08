@@ -38,6 +38,7 @@ import { GoogleSignInButtonComponent } from './header/authentication/access-view
 import { CurrentUserService } from './common/services/current-user.service';
 import { AuthenticationComponent } from './header/authentication/authentication.component';
 import { UserMenuComponent } from './header/authentication/user-menu/user-menu.component';
+import { GoogleApiService } from './common/services/google-api-service.service';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { UserMenuComponent } from './header/authentication/user-menu/user-menu.c
     PostService,
     UserService,
     CommentsService,
-    CurrentUserService
+    CurrentUserService,
+    GoogleApiService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { UserService } from '../../../../common/services/user.service';
 import { CurrentUserService } from '../../../../common/services/current-user.service';
 import { IUser } from '../../../../common/interfaces/user';
-declare const gapi: any;
+import { GoogleApiService } from '../../../../common/services/google-api-service.service';
 
 @Component({
   selector: 'blog-google-sign-in-button',
@@ -11,8 +11,11 @@ declare const gapi: any;
 })
 export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
 
-  constructor(private userService: UserService,
-  private currentUserService: CurrentUserService) { }
+  constructor(
+    private userService: UserService,
+    private currentUserService: CurrentUserService,
+    private googleApiService: GoogleApiService
+  ) { }
 
   user: IUser;
 
@@ -20,14 +23,7 @@ export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    gapi.signin2.render('google-btn', {
-      'scope': 'profile email',
-      'width': 240,
-      'height': 50,
-      'longtitle': true,
-      'theme': 'light',
-      'onsuccess': param => this.onSignIn(param)
-    });
+    this.googleApiService.renderSignInButton('google-btn').subscribe((googleUser) => this.onSignIn(googleUser));
   }
 
   onSignIn(googleUser) {
