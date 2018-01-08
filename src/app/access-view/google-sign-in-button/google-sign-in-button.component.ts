@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { UserService } from '../../common/services/user.service';
 import { IUser } from '../../common/interfaces/user';
+import { CurrentUserService } from '../../common/services/current-user.service';
 declare const gapi: any;
 
 @Component({
@@ -10,7 +11,8 @@ declare const gapi: any;
 })
 export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+  private currentUserService: CurrentUserService) { }
 
   user: IUser;
 
@@ -36,27 +38,10 @@ export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
       } else {
        this.userService.postUser(this.createUserByGoogleProfile(profile)).subscribe((newUser: IUser) => this.user = newUser);
       }
+      this.currentUserService.set(user);
+      // console.log(user);
     });
-
-    console.log(profile.getName());
-    // console.log(profile.getImageUrl());
-
-    // ((u, p) => {
-    //     u.id            = p.getId();
-    //     u.name          = p.getName();
-    //     u.email         = p.getEmail();
-    //     u.imageUrl      = p.getImageUrl();
-    //     u.givenName     = p.getGivenName();
-    //     u.familyName    = p.getFamilyName();
-    // })(user, googleUser.getBasicProfile());
-
-    // ((u, r) => {
-    //     u.token         = r.id_token
-    // })(user, googleUser.getAuthResponse());
-
-    // user.save();
-    // this.goHome();
-    // };
+    // console.log(profile.getName());
   }
 
   private createUserByGoogleProfile(googleProfile: any): IUser {
