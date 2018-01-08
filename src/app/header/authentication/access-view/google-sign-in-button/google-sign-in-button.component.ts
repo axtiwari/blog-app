@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { UserService } from '../../common/services/user.service';
-import { IUser } from '../../common/interfaces/user';
-import { CurrentUserService } from '../../common/services/current-user.service';
+import { UserService } from '../../../../common/services/user.service';
+import { CurrentUserService } from '../../../../common/services/current-user.service';
+import { IUser } from '../../../../common/interfaces/user';
 declare const gapi: any;
 
 @Component({

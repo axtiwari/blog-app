@@ -19,10 +19,10 @@ import { PostListComponent } from './common/posts/post-list/post-list.component'
 import { PersonDataComponent } from './common/posts/post/person-data/person-data.component';
 import { SearchComponent } from './common/search/search.component';
 import { SliderComponent } from './landing-view/slider/slider.component';
-import { HeaderComponent } from './landing-view/header/header.component';
+import { HeaderComponent } from './header/header.component';
 import { BlogsViewSectionComponent } from './landing-view/blogs-view-section/blogs-view-section.component';
 import { ContactUsComponent } from './landing-view/contact-us/contact-us.component';
-import { FooterComponent } from './landing-view/footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
 import { MapComponent } from './landing-view/contact-us/map/map.component';
 import { LandingComponent } from './landing-view/landing.component';
 import { OnePostViewComponent } from './common/posts/one-post-view/one-post-view.component';
@@ -33,11 +33,11 @@ import { UserService } from './common/services/user.service';
 import { CommentsService } from './common/services/comments.service';
 import { CutContentPipe } from './common/pipes/cutContent.pipe';
 import { StripHtmlPipe } from './common/pipes/stripHtml.pipe';
-import { AccessViewComponent } from './access-view/access-view.component';
-import { GoogleSignInButtonComponent } from './access-view/google-sign-in-button/google-sign-in-button.component';
+import { AccessViewComponent } from './header/authentication/access-view/access-view.component';
+import { GoogleSignInButtonComponent } from './header/authentication/access-view/google-sign-in-button/google-sign-in-button.component';
 import { CurrentUserService } from './common/services/current-user.service';
-import { AuthenticationComponent } from './landing-view/header/authentication/authentication.component';
-import { UserMenuComponent } from './landing-view/header/authentication/user-menu/user-menu.component';
+import { AuthenticationComponent } from './header/authentication/authentication.component';
+import { UserMenuComponent } from './header/authentication/user-menu/user-menu.component';
 
 @NgModule({
   declarations: [

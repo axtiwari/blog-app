@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { CurrentUserService } from '../../../common/services/current-user.service';
-import { IUser } from '../../../common/interfaces/user';
 import { Observable } from 'rxjs/Observable';
+import { CurrentUserService } from '../../common/services/current-user.service';
+import { IUser } from '../../common/interfaces/user';
 declare const gapi: any;
 
 @Component({
