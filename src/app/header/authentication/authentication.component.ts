@@ -17,14 +17,15 @@ export class AuthenticationComponent implements OnInit {
     private zone: NgZone) { }
 
   isAccessPopupVisible = false;
+  isUserMenuVisible = false;
 
   user: IUser; // initial value of user - null
 
   ngOnInit() {
     this.currentUserService.get().subscribe((user: IUser) => {
       console.log(user);
-       // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334:
-      this.zone.run(() =>  this.user = user);
+      // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334:
+      this.zone.run(() => this.user = user);
     }
     );
   }
@@ -41,5 +42,9 @@ export class AuthenticationComponent implements OnInit {
       this.currentUserService.signOut();
       console.log('User signed out.');
     });
+  }
+
+  showUserMeny(): void {
+    this.isUserMenuVisible = !this.isUserMenuVisible;
   }
 }

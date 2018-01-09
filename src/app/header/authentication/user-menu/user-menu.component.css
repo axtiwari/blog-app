@@ -1,5 +1,55 @@
 .user-menu-component{
     position: absolute;
     top: 50px;
-    right: 0;
+    right: -5px;
+    margin: 0;
+    padding: 7px;
 }
+
+.user-menu-component__menu::before{
+    content: '';
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    transform: rotate(45deg);
+    border-style: solid;
+    border-color: #d4d4d4 transparent transparent #d4d4d4;
+    border-width: 1px 0 0 1px;
+}
+
+.user-menu-component__menu{
+    background-color: white;
+    border: 1px solid #d4d4d4;
+    margin: 0;
+    padding: 20px 0 20px 0;
+    list-style-type: none;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.user-menu-component__row{
+    width: 100%;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap;
+}
+
+.user-menu-component__row:hover{
+    background-color: #d4d4d4;
+}
+
+
+@media only screen and (max-width: 690px) {
+    .user-menu-component{
+        width: 100%;
+        left: 0;
+    }
+}
+

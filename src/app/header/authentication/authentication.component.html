@@ -1,5 +1,5 @@
-<img [src]="user.avatarImageUrl" alt="avatar" class="header-avatar" *ngIf="user; else signIn">
-<blog-user-menu (signOut)="signOut()"></blog-user-menu>
+<img [src]="user.avatarImageUrl" alt="avatar" class="header-avatar" *ngIf="user; else signIn" (click)="showUserMeny()">
+<blog-user-menu (signOut)="signOut()" [hidden]="!isUserMenuVisible"></blog-user-menu>
 <ng-template #signIn>
     <button *ngIf="!isUserAccount" (click)="showPopUp()" class="header-component_button">Sign in</button>
 </ng-template>

@@ -1,7 +1,19 @@
-<ul class="user-menu-component">
-  <li><a>My profile</a></li>
-  <li><a>Create new post</a></li>
-  <li><a [routerLink]="['/posts']">Discover posts</a></li>
-  <li><a>Settings</a></li>
-  <li><a href="javascript:void(0)" (click)="signOutOnClick()">Sign out</a></li>
-</ul>
+<div class="user-menu-component">
+  <ul class="user-menu-component__menu">
+    <li>
+      <a class="user-menu-component__row">My profile</a>
+    </li>
+    <li>
+      <a class="user-menu-component__row">Create new post</a>
+    </li>
+    <li>
+      <a [routerLink]="['/posts']" class="user-menu-component__row">Discover posts</a>
+    </li>
+    <li>
+      <a class="user-menu-component__row">Settings</a>
+    </li>
+    <li>
+      <a href="javascript:void(0)" (click)="signOutOnClick()" class="user-menu-component__row">Sign out</a>
+    </li>
+  </ul>
+</div>
