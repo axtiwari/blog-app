@@ -1,0 +1,19 @@
+.create-post-container{
+    padding: 20px 0;
+}
+
+.create-post-container__header{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.create-post-container__header::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color:  #d4d4d4;
+    position: absolute;
+    bottom: 0;
+}

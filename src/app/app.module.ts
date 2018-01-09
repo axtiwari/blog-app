@@ -5,7 +5,6 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -39,6 +38,7 @@ import { CurrentUserService } from './common/services/current-user.service';
 import { AuthenticationComponent } from './header/authentication/authentication.component';
 import { UserMenuComponent } from './header/authentication/user-menu/user-menu.component';
 import { GoogleApiService } from './common/services/google-api-service.service';
+import { CreatePostViewComponent } from './common/posts/create-post-view/create-post-view.component';
 
 @NgModule({
   declarations: [
@@ -65,12 +65,12 @@ import { GoogleApiService } from './common/services/google-api-service.service';
     AccessViewComponent,
     GoogleSignInButtonComponent,
     AuthenticationComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    CreatePostViewComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    CommonModule,
     InfiniteScrollModule,
     FormsModule,
     AgmCoreModule.forRoot({
@@ -79,9 +79,10 @@ import { GoogleApiService } from './common/services/google-api-service.service';
     RouterModule.forRoot([
       { path: '', component: LandingComponent },
       { path: 'posts', component: PostsViewComponent },
-      { path: 'posts/:id', component: OnePostViewComponent},
-      { path: 'users/:id', component: UserViewComponent}
-  ])
+      { path: 'posts/:id', component: OnePostViewComponent },
+      { path: 'users/:id', component: UserViewComponent },
+      { path: 'newPost', component: CreatePostViewComponent }
+    ])
   ],
   providers: [
     PostService,

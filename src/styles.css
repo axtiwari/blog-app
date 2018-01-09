@@ -570,3 +570,20 @@ button {
     cursor: pointer;
     background-color: transparent;
 }
+
+.wrapper-container{
+    width: 100%;
+    padding-top: 50px;
+}
+
+.inner-container{
+    min-height: 100vh;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px;
+}
+@media only screen and (max-width: 690px) {
+    .inner-container{
+        width: 100%;
+    }
+}
