@@ -40,6 +40,7 @@ import { UserMenuComponent } from './header/authentication/user-menu/user-menu.c
 import { GoogleApiService } from './common/services/google-api-service.service';
 import { CreatePostViewComponent } from './common/posts/create-post-view/create-post-view.component';
 import { AuthenticationGuard } from './common/guards/authentication-guard.service';
+import { MediumEditorComponent } from './common/posts/create-post-view/medium-editor/medium-editor.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AuthenticationGuard } from './common/guards/authentication-guard.servic
     GoogleSignInButtonComponent,
     AuthenticationComponent,
     UserMenuComponent,
-    CreatePostViewComponent
+    CreatePostViewComponent,
+    MediumEditorComponent
   ],
   imports: [
     BrowserModule,
