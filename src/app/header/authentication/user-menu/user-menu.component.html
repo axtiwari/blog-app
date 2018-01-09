@@ -1,7 +1,7 @@
 <div class="user-menu-component">
   <ul class="user-menu-component__menu">
     <li>
-      <a class="user-menu-component__row">My profile</a>
+      <a [routerLink]="['/users', userId]" class="user-menu-component__row">My profile</a>
     </li>
     <li>
       <a [routerLink]="['/newPost']" class="user-menu-component__row">Create new post</a>

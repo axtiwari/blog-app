@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'blog-user-menu',
@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class UserMenuComponent implements OnInit {
 
   @Output() signOut = new EventEmitter();
+  @Input() userId: number;
 
   constructor() { }
 

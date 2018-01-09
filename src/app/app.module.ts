@@ -39,6 +39,7 @@ import { AuthenticationComponent } from './header/authentication/authentication.
 import { UserMenuComponent } from './header/authentication/user-menu/user-menu.component';
 import { GoogleApiService } from './common/services/google-api-service.service';
 import { CreatePostViewComponent } from './common/posts/create-post-view/create-post-view.component';
+import { AuthenticationGuard } from './common/guards/authentication-guard.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,7 @@ import { CreatePostViewComponent } from './common/posts/create-post-view/create-
       { path: 'posts', component: PostsViewComponent },
       { path: 'posts/:id', component: OnePostViewComponent },
       { path: 'users/:id', component: UserViewComponent },
-      { path: 'newPost', component: CreatePostViewComponent }
+      { path: 'newPost', component: CreatePostViewComponent,  canActivate: [AuthenticationGuard]}
     ])
   ],
   providers: [
@@ -89,7 +90,8 @@ import { CreatePostViewComponent } from './common/posts/create-post-view/create-
     UserService,
     CommentsService,
     CurrentUserService,
-    GoogleApiService
+    GoogleApiService,
+    AuthenticationGuard
   ],
   bootstrap: [AppComponent]
 })

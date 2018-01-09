@@ -44,7 +44,7 @@ export class AuthenticationComponent implements OnInit {
     });
   }
 
-  showUserMeny(): void {
+  showUserMenu(): void {
     this.isUserMenuVisible = !this.isUserMenuVisible;
   }
 }

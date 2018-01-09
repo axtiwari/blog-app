@@ -1,14 +1,13 @@
 <div class="wrapper-container">
     <main class="inner-container">
-      <article class="create-post-container"  *ngIf="user; else loading">
+      <article class="create-post-container">
         <header class="create-post-container__header">
-            <blog-person-data [user]="user"></blog-person-data>
+            <blog-person-data [user]="user$ |async"></blog-person-data>
             <h5>Draft</h5>
         </header>
         <section class="create-post-container__content">
             <div class="editor"></div>
         </section>
       </article>
-      <ng-template #loading>Loading...</ng-template>
     </main>
 </div>

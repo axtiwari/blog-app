@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'blog-user-view',
@@ -9,17 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 export class UserViewComponent implements OnInit {
 
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute
   ) { }
 
-  id: number;
+  id$: Observable<number>;
 
   ngOnInit() {
-    const param = this.route.snapshot.paramMap.get('id');
-    if (param) {
-      this.id = +param;
-    }
-
+    this.id$ = this.route.params.map(params => +params['id']);
   }
 
 }

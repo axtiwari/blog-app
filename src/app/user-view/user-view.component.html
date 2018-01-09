@@ -1,4 +1,4 @@
 <section class="user-view">
-    <blog-user [id]="id"></blog-user>
-    <blog-scrollable-posts [userId]="id"></blog-scrollable-posts>
+    <blog-user [id]="id$ | async"></blog-user>
+    <blog-scrollable-posts [userId]="id$ | async"></blog-scrollable-posts>
   </section>
