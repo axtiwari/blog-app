@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,  ViewChild } from '@angular/core';
+import { Component, OnInit, Input,  ViewChild, Output, EventEmitter } from '@angular/core';
 import { IPost } from '../../../interfaces/post';
 import { PostService } from '../../../services/posts.service';
 
@@ -11,6 +11,7 @@ export class CreatePostFormComponent implements OnInit {
 
   @Input() userId: number;
   @ViewChild('mediumEditor') postDescription;
+  @Output() postCreated: EventEmitter<IPost> = new EventEmitter;
 
   constructor(private postService: PostService) { }
 
@@ -29,6 +30,8 @@ export class CreatePostFormComponent implements OnInit {
 
   savePost(formValue) {
     console.log(formValue);
-    this.postService.postPost(this.createPost(this.userId, formValue, this.postDescription)).subscribe((post) => console.log(post));
+    this.postService
+    .postPost(this.createPost(this.userId, formValue, this.postDescription))
+    .subscribe((post) => this.postCreated.emit(post));
   }
 }

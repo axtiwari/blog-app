@@ -5,7 +5,7 @@
                 <blog-person-data [user]="user$ |async"></blog-person-data>
                 <h5>Draft</h5>
             </header>
-            <blog-create-post-form [userId]="(user$ |async).id"></blog-create-post-form>
+            <blog-create-post-form [userId]="(user$ |async).id" (postCreated)="navigateToPost($event)"></blog-create-post-form>
         </section>
     </main>
 </div>

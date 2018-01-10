@@ -3,6 +3,7 @@ import { IUser } from '../../interfaces/user';
 import { Observable } from 'rxjs/Observable';
 import { CurrentUserService } from '../../services/current-user.service';
 import { Router } from '@angular/router';
+import { IPost } from '../../interfaces/post';
 
 @Component({
   selector: 'blog-create-post-view',
@@ -24,5 +25,9 @@ export class CreatePostViewComponent implements OnInit {
           this.router.navigate(['']);
         }
       });
+  }
+
+  navigateToPost(post: IPost) {
+    this.router.navigate(['posts', post.id]);
   }
 }
