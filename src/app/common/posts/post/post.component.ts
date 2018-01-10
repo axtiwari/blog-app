@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPost } from '../../interfaces/post';
+import { HtmlParserService } from '../../services/htmlParser.service';
 
 @Component({
   selector: 'blog-post',
@@ -9,10 +10,14 @@ import { IPost } from '../../interfaces/post';
 })
 export class PostComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router,
+  private htmlParserService: HtmlParserService) { }
+
   @Input() postData: IPost;
+  imgUrl: string;
 
   ngOnInit() {
+    this.imgUrl = this.htmlParserService.getFirstImgSrc(this.postData.descriptionHtml);
   }
 
   search(keyword: string): void {

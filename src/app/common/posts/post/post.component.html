@@ -1,5 +1,5 @@
 <a [routerLink]="['/posts', postData.id]" class="post-component">
-  <div class="post-component__main-img" [ngStyle]="{'background-image': 'url(/assets/pictures/' + postData.pictureUrl[0] + ')'}"></div>
+  <div class="post-component__main-img" [ngStyle]="{'background-image': 'url('+imgUrl+')'}"></div>
   <article class="article-component">
     <header class="article-component__header">
       <blog-person-data [user]="postData.user"></blog-person-data>

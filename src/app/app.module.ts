@@ -42,6 +42,7 @@ import { CreatePostViewComponent } from './common/posts/create-post-view/create-
 import { AuthenticationGuard } from './common/guards/authentication-guard.service';
 import { MediumEditorComponent } from './common/posts/create-post-view/create-post-form/medium-editor/medium-editor.component';
 import { CreatePostFormComponent } from './common/posts/create-post-view/create-post-form/create-post-form.component';
+import { HtmlParserService } from './common/services/htmlParser.service';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { CreatePostFormComponent } from './common/posts/create-post-view/create-
     CommentsService,
     CurrentUserService,
     GoogleApiService,
-    AuthenticationGuard
+    AuthenticationGuard,
+    HtmlParserService
   ],
   bootstrap: [AppComponent]
 })

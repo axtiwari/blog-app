@@ -18,6 +18,10 @@ export class MediumEditorComponent implements OnInit, AfterViewInit {
       placeholder: { // options for placeholder
           text: 'Type your text',
           hideOnClick: true
+      },
+      toolbar: {
+        buttons: ['bold', 'italic', 'underline', 'anchor', 'h2',
+         'h3', 'quote', 'justifyLeft', 'justifyCenter' , 'justifyRight', 'justifyFull', 'orderedlist', 'unorderedlist']
       }
   });
    // this.medium.setContent('<h2>MediumEditor</h2>'); // add existing HTML into it.
