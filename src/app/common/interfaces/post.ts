@@ -1,12 +1,11 @@
 import { IComment } from './comment';
 
 export interface IPost {
-    personId: number;
-    postId: number;
+    userId: number;
+    id?: number;
     topic: string;
     date: string;
     descriptionHtml: string;
-    pictureUrl: string[];
+    pictureUrl?: string[];
     hashtags: string[];
-    comments: IComment[];
 }

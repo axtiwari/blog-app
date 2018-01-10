@@ -29,4 +29,9 @@ export class PostService {
         const userIdSegment = userId ? `userId=${userId}&` : '';
         return `${this.postsUrl}?${userIdSegment}_page=${page}&_limit=${limit}&_sort=date&_order=desc&_expand=user${query}`;
     }
+
+    postPost(newPost: IPost): Observable<{}> {
+        console.log(`posted your post: ${newPost} on server`);
+        return this.http.post(this.postsUrl, newPost);
+    }
 }
