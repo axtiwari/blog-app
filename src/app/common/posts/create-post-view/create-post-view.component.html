@@ -5,15 +5,7 @@
                 <blog-person-data [user]="user$ |async"></blog-person-data>
                 <h5>Draft</h5>
             </header>
-            <form class="create-post-container__form">
-                <label for="post-title">Title</label>
-                <input type="text" placeholder="type here.." id="post-title">
-                <label for="post-body">Write your story</label>
-                <!-- <blog-medium-editor id="post-body" name="content" ngModel></blog-medium-editor> -->
-                <label for="post-footer">Add hashtags (#keywords) for better search</label>
-                <input type="text" id="post-footer" placeholder="hashtags..">
-                <button type="submit">Create</button>
-            </form>
+            <blog-create-post-form></blog-create-post-form>
         </section>
     </main>
 </div>
