@@ -17,3 +17,8 @@
     position: absolute;
     bottom: 0;
 }
+
+.create-post-container__form{
+    display: flex;
+    flex-direction: column;
+}
