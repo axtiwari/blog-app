@@ -6,6 +6,5 @@ export interface IPost {
     topic: string;
     date: string;
     descriptionHtml: string;
-    pictureUrl?: string[];
     hashtags: string[];
 }
