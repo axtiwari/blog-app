@@ -20,8 +20,8 @@ export class UserService {
         .do((data) => this.writeMessage(data));
     }
 
-    postUser(user: IUser) {
-        return this.http.post(this.usersUrl, user);
+    postUser(user: IUser): Observable<IUser> {
+        return this.http.post<IUser>(this.usersUrl, user);
     }
 
     private writeMessage(user: IUser) {
