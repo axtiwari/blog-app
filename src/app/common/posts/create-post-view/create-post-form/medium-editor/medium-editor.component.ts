@@ -6,7 +6,7 @@ import * as MediumEditor from 'medium-editor';
   styleUrls: ['./medium-editor.component.css']
 })
 export class MediumEditorComponent implements OnInit, AfterViewInit {
-  medium: MediumEditor;
+  private medium: MediumEditor;
 
   constructor() { }
 
@@ -26,5 +26,9 @@ export class MediumEditorComponent implements OnInit, AfterViewInit {
   });
    // this.medium.setContent('<h2>MediumEditor</h2>'); // add existing HTML into it.
    // this.medium.getContent(0); //GET CONTENT :)
+  }
+
+  getContent(): string {
+    return this.medium.getContent(0);
   }
 }

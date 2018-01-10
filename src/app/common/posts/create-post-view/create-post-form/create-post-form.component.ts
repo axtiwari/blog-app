@@ -1,6 +1,7 @@
 import { Component, OnInit, Input,  ViewChild, Output, EventEmitter } from '@angular/core';
 import { IPost } from '../../../interfaces/post';
 import { PostService } from '../../../services/posts.service';
+import { MediumEditorComponent } from './medium-editor/medium-editor.component';
 
 @Component({
   selector: 'blog-create-post-form',
@@ -10,7 +11,7 @@ import { PostService } from '../../../services/posts.service';
 export class CreatePostFormComponent implements OnInit {
 
   @Input() userId: number;
-  @ViewChild('mediumEditor') postDescription;
+  @ViewChild('mediumEditor') postDescription: MediumEditorComponent;
   @Output() postCreated: EventEmitter<IPost> = new EventEmitter;
 
   constructor(private postService: PostService) { }
@@ -23,7 +24,7 @@ export class CreatePostFormComponent implements OnInit {
       userId: this.userId,
       topic: formValue.title,
       date: new Date().toISOString(),
-      descriptionHtml: this.postDescription.medium.getContent(0),
+      descriptionHtml: this.postDescription.getContent(),
       hashtags: [formValue.hashtags]
   };
   }

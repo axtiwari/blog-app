@@ -72,8 +72,7 @@ import { HtmlParserService } from './common/services/htmlParser.service';
     UserMenuComponent,
     CreatePostViewComponent,
     MediumEditorComponent,
-    CreatePostFormComponent,
-    SaveHtmlStylesPipe
+    CreatePostFormComponent
   ],
   imports: [
     BrowserModule,
