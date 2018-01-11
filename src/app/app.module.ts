@@ -43,6 +43,7 @@ import { AuthenticationGuard } from './common/guards/authentication-guard.servic
 import { MediumEditorComponent } from './common/posts/create-post-view/create-post-form/medium-editor/medium-editor.component';
 import { CreatePostFormComponent } from './common/posts/create-post-view/create-post-form/create-post-form.component';
 import { HtmlParserService } from './common/services/htmlParser.service';
+import { HashtagParserService } from './common/services/hashtag-parser.service';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { HtmlParserService } from './common/services/htmlParser.service';
     CurrentUserService,
     GoogleApiService,
     AuthenticationGuard,
-    HtmlParserService
+    HtmlParserService,
+    HashtagParserService
   ],
   bootstrap: [AppComponent]
 })

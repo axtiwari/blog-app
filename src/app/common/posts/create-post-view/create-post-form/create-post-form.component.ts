@@ -2,6 +2,7 @@ import { Component, OnInit, Input,  ViewChild, Output, EventEmitter } from '@ang
 import { IPost } from '../../../interfaces/post';
 import { PostService } from '../../../services/posts.service';
 import { MediumEditorComponent } from './medium-editor/medium-editor.component';
+import { HashtagParserService } from '../../../services/hashtag-parser.service';
 
 @Component({
   selector: 'blog-create-post-form',
@@ -14,7 +15,8 @@ export class CreatePostFormComponent implements OnInit {
   @ViewChild('mediumEditor') postDescription: MediumEditorComponent;
   @Output() postCreated: EventEmitter<IPost> = new EventEmitter;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+  private hashtagParserService: HashtagParserService) { }
 
   ngOnInit() {
   }
@@ -25,7 +27,7 @@ export class CreatePostFormComponent implements OnInit {
       topic: formValue.title,
       date: new Date().toISOString(),
       descriptionHtml: this.postDescription.getContent(),
-      hashtags: [formValue.hashtags]
+      hashtags: this.hashtagParserService.getHashtags(formValue.hashtags)
   };
   }
 
