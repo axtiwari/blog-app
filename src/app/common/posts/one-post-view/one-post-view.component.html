@@ -2,7 +2,10 @@
   <article class="inner-container one-post-view-component" *ngIf="post$ | async; let post; else loading">
     <header class="one-post-view-component__header">
       <blog-person-data [user]="post.user"></blog-person-data>
-      <a *ngIf="(currentUser$ | async).id === post.userId" [routerLink]="['/editPost', post.id]">Edit post</a>
+      <ng-container *ngIf="userId === post.userId">
+          <a [routerLink]="['/editPost', post.id]">Edit post</a>
+          <button (click)="deletePost(post.id)">Delete post</button>
+      </ng-container>
     </header>
     <section>
       <h2>{{post.topic}}</h2>

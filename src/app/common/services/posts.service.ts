@@ -39,4 +39,9 @@ export class PostService {
         console.log(`edit your post: ${post} on server`);
         return this.http.put<IPost>(this.postsUrl + '/' + post.id, post);
     }
+
+    deletePost(postId: number) {
+        console.log(`delete your post: ${postId} from server`);
+        return this.http.delete(this.postsUrl + '/' + postId);
+    }
 }
