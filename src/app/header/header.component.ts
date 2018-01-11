@@ -18,17 +18,23 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {}
 
   showMenu() {
-    this.isSearchVisible = false;
     this.isMenuVisible = !this.isMenuVisible;
   }
 
   showSearch() {
-    this.isMenuVisible = false;
     this.isSearchVisible = !this.isSearchVisible;
   }
 
   searchPosts(keyword: string) {
     this.router.navigate(['posts'], { queryParams: { q: keyword } });
+    this.isSearchVisible = false;
+  }
+
+  onClickedOutsideCloseNav(e: Event) {
+    this.isMenuVisible = false;
+  }
+
+  onClickedOutsideCloseSearch(e: Event) {
     this.isSearchVisible = false;
   }
 }

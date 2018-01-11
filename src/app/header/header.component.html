@@ -2,7 +2,7 @@
   <a class="header-component__logo-container" href="#">
     <img class="header-component__logo" src="/assets/pictures/logo.png" alt="logo">
   </a>
-  <nav class="header-component__navigation" (click)="showMenu()" [ngClass]="{'header-component__navigation--visibility': isMenuVisible}">
+  <nav class="header-component__navigation" (clickOutside)="onClickedOutsideCloseNav($event)" (click)="showMenu()" [ngClass]="{'header-component__navigation--visibility': isMenuVisible}">
     <ul class="nav-items-component">
       <li class="nav-items-component__nav-btn">
         <a class="nav-items-component__nav-content" href="#home">Home</a>
@@ -33,4 +33,4 @@
     <blog-authentication></blog-authentication>
   </div>
 </header>
-<blog-search *ngIf="isSearchVisible" (search)="searchPosts($event)"></blog-search>
+<blog-search *ngIf="isSearchVisible" (search)="searchPosts($event)" (clickOutside)=" onClickedOutsideCloseSearch($event)" [exclude]="'.button-search'"></blog-search>
