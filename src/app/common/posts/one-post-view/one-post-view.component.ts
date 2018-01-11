@@ -7,6 +7,8 @@ import { PostService } from '../../services/posts.service';
 import { CommentsService } from '../../services/comments.service';
 import { IPost } from '../../interfaces/post';
 import { IComment } from '../../interfaces/comment';
+import { CurrentUserService } from '../../services/current-user.service';
+import { IUser } from '../../interfaces/user';
 
 @Component({
   selector: 'blog-one-post-view',
@@ -18,10 +20,12 @@ export class OnePostViewComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-    private commentsService: CommentsService
+    private commentsService: CommentsService,
+    private currentUserService: CurrentUserService
   ) { }
     post$: Observable<IPost> = Observable.of();
     postComments$: Observable<IComment[]> = Observable.of();
+    currentUser$: Observable<IUser> = Observable.of();
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
@@ -29,6 +33,7 @@ export class OnePostViewComponent implements OnInit {
       const id = +param;
       this.post$ = this.postService.getPost(id);
       this.postComments$ = this.commentsService.getComments(id);
+      this.currentUser$ = this.currentUserService.get();
     }
   }
 }

@@ -1,7 +1,8 @@
-<div class="inner-container">
-  <article class="post-component" *ngIf="post$ | async; let post; else loading">
-    <header>
-        <blog-person-data [user]="post.user"></blog-person-data>
+<div class="wrapper-container">
+  <article class="inner-container one-post-view-component" *ngIf="post$ | async; let post; else loading">
+    <header class="one-post-view-component__header">
+      <blog-person-data [user]="post.user"></blog-person-data>
+      <a *ngIf="(currentUser$ | async).id === post.userId" [routerLink]="['/editPost', post.id]">Edit post</a>
     </header>
     <section>
       <h2>{{post.topic}}</h2>
@@ -10,8 +11,8 @@
       <p>{{post.hashtags}}</p>
     </section>
     <footer>
-        <h3>Comments:</h3>
-        <blog-comment [comment]="comment" *ngFor="let comment of (postComments$ | async)"></blog-comment>
+      <h3>Comments:</h3>
+      <blog-comment [comment]="comment" *ngFor="let comment of (postComments$ | async)"></blog-comment>
     </footer>
   </article>
   <ng-template #loading>Loading...</ng-template>

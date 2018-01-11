@@ -1,11 +1,9 @@
-.inner-container{
-    width: 100%;
-    padding-top: 50px;
+.one-post-view-component{
+    display: flex;
+    flex-flow: column;
 }
 
-.post-component{
-    max-width: 960px;
-    margin-right: auto;
-    margin-left: auto;
-    min-height: 100vh;
+.one-post-view-component__header{
+    display: flex;
+    justify-content: space-between;
 }
