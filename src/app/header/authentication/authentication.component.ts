@@ -47,4 +47,9 @@ export class AuthenticationComponent implements OnInit {
   showUserMenu(): void {
     this.isUserMenuVisible = !this.isUserMenuVisible;
   }
+
+  onClickedOutside(e: Event) {
+    // console.log('Clicked outside:', e);
+    this.isUserMenuVisible = false;
+  }
 }

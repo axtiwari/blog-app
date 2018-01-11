@@ -44,6 +44,7 @@ import { MediumEditorComponent } from './common/posts/create-post-view/create-po
 import { CreatePostFormComponent } from './common/posts/create-post-view/create-post-form/create-post-form.component';
 import { HtmlParserService } from './common/services/htmlParser.service';
 import { HashtagParserService } from './common/services/hashtag-parser.service';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { HashtagParserService } from './common/services/hashtag-parser.service';
       { path: 'posts/:id', component: OnePostViewComponent },
       { path: 'users/:id', component: UserViewComponent },
       { path: 'newPost', component: CreatePostViewComponent,  canActivate: [AuthenticationGuard]}
-    ])
+    ]),
+    ClickOutsideModule
   ],
   providers: [
     PostService,
