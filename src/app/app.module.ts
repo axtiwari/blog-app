@@ -38,13 +38,14 @@ import { CurrentUserService } from './common/services/current-user.service';
 import { AuthenticationComponent } from './header/authentication/authentication.component';
 import { UserMenuComponent } from './header/authentication/user-menu/user-menu.component';
 import { GoogleApiService } from './common/services/google-api-service.service';
-import { CreatePostViewComponent } from './common/posts/create-post-view/create-post-view.component';
 import { AuthenticationGuard } from './common/guards/authentication-guard.service';
-import { MediumEditorComponent } from './common/posts/create-post-view/create-post-form/medium-editor/medium-editor.component';
-import { CreatePostFormComponent } from './common/posts/create-post-view/create-post-form/create-post-form.component';
 import { HtmlParserService } from './common/services/htmlParser.service';
 import { HashtagParserService } from './common/services/hashtag-parser.service';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { NewPostViewComponent } from './common/posts/post-manipulation/new-post-view/new-post-view.component';
+import { MediumEditorComponent } from './common/posts/post-manipulation/create-post-form/medium-editor/medium-editor.component';
+import { CreatePostFormComponent } from './common/posts/post-manipulation/create-post-form/create-post-form.component';
+import { EditPostViewComponent } from './common/posts/post-manipulation/edit-post-view/edit-post-view.component';
 
 @NgModule({
   declarations: [
@@ -72,9 +73,10 @@ import { ClickOutsideModule } from 'ng-click-outside';
     GoogleSignInButtonComponent,
     AuthenticationComponent,
     UserMenuComponent,
-    CreatePostViewComponent,
+    NewPostViewComponent,
     MediumEditorComponent,
-    CreatePostFormComponent
+    CreatePostFormComponent,
+    EditPostViewComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,8 @@ import { ClickOutsideModule } from 'ng-click-outside';
       { path: 'posts', component: PostsViewComponent },
       { path: 'posts/:id', component: OnePostViewComponent },
       { path: 'users/:id', component: UserViewComponent },
-      { path: 'newPost', component: CreatePostViewComponent,  canActivate: [AuthenticationGuard]}
+      { path: 'newPost', component: NewPostViewComponent,  canActivate: [AuthenticationGuard]},
+      { path: 'editPost/:id', component: EditPostViewComponent, canActivate: [AuthenticationGuard]}
     ]),
     ClickOutsideModule
   ],
