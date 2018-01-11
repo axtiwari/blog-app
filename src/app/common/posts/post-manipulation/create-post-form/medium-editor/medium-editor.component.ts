@@ -31,4 +31,8 @@ export class MediumEditorComponent implements OnInit, AfterViewInit {
   getContent(): string {
     return this.medium.getContent(0);
   }
+
+  setContent(content: string): void {
+    this.medium.setContent(content);
+  }
 }

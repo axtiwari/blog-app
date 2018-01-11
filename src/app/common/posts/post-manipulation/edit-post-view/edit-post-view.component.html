@@ -1,1 +1,1 @@
-<blog-create-post-form [user]="(currentUser$ |async)" (postCreated)="navigateToPost($event)"></blog-create-post-form>
+<blog-create-post-form *ngIf="user && post" [user]="user" [post]="post" (save)="updatePost($event)"></blog-create-post-form>

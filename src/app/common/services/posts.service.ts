@@ -20,7 +20,7 @@ export class PostService {
     }
 
     getPost(id: number): Observable<IPost> {
-         return this.http.get<IPost>(`${this.postsUrl}/${id}?_expand=user&_embed=comments`)
+         return this.http.get<IPost>(`${this.postsUrl}/${id}?_expand=user`)
          .do(data => console.log(`got post with id: ${id} from server`));
     }
 
@@ -33,5 +33,10 @@ export class PostService {
     postPost(newPost: IPost): Observable<IPost> {
         console.log(`posted your post: ${newPost} on server`);
         return this.http.post<IPost>(this.postsUrl, newPost);
+    }
+
+    editPost(post: IPost): Observable<IPost> {
+        console.log(`edit your post: ${post} on server`);
+        return this.http.put<IPost>(this.postsUrl + '/' + post.id, post);
     }
 }

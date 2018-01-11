@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { CurrentUserService } from '../../../services/current-user.service';
 import { IPost } from '../../../interfaces/post';
 import { PostService } from '../../../services/posts.service';
+import { Router } from '@angular/router';
+import 'rxjs/add/observable/combineLatest';
 
 @Component({
   selector: 'blog-edit-post-view',
@@ -14,20 +16,37 @@ import { PostService } from '../../../services/posts.service';
 export class EditPostViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-  private currentUserService: CurrentUserService,
-private postService: PostService) { }
+    private currentUserService: CurrentUserService,
+    private postService: PostService,
+    private router: Router) { }
 
-  currentUser$: Observable<IUser>;
-  post$: Observable<IPost>;
-  userId: number;
+  user: IUser;
+  post: IPost;
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
-    if (param) {
-      const id = +param;
-      this.post$ = this.postService.getPost(id).do((post: IPost) => this.userId = post.userId);
-      this.currentUser$ = this.currentUserService.get();
+    if (!param) {
+      this.router.navigate(['']);
     }
+    const post$ = this.postService.getPost(+param);
+    const currentUser$ = this.currentUserService.get();
+
+    Observable.combineLatest(currentUser$, post$).subscribe(([curUser, post]) => {
+      if (curUser.id !== post.userId) {
+        this.router.navigate(['']);
+      }
+      this.user = curUser;
+      this.post = post;
+    });
   }
 
+  updatePost(post: IPost) {
+    post.id = this.post.id;
+    post.date = this.post.date;
+    this.postService.editPost(post)
+    .subscribe(postedPost => {
+      console.log('Post id:' + postedPost.id + ' was edited and was successfully posted on json-server');
+      this.router.navigate(['posts', postedPost.id]);
+    });
+  }
 }
