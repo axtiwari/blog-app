@@ -17,4 +17,9 @@ export class CommentsService {
     postComment(comment: IComment): Observable<IComment> {
         return this.http.post<IComment>(this.commentsUrl, comment);
     }
+
+    deleteComment(id: number): Observable<IComment> {
+        console.log(`delete your comment: ${id} from server`);
+        return this.http.delete<IComment>(this.commentsUrl + '/' + id);
+    }
 }

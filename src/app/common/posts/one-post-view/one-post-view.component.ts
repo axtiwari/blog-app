@@ -26,8 +26,8 @@ export class OnePostViewComponent implements OnInit {
   ) { }
   post$: Observable<IPost> = Observable.of();
   postComments: IComment[] = [];
-  private postId: number;
-  private currentUser: IUser;
+  postId: number;
+  currentUser: IUser;
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
@@ -70,5 +70,14 @@ export class OnePostViewComponent implements OnInit {
       comment: comment,
       date: new Date().toISOString()
     };
+  }
+
+  deleteComment(commentId: number) {
+    this.commentsService.deleteComment(commentId)
+      .subscribe(comment => {
+        this.postComments = this.postComments.filter(commentItem => {
+          return commentItem.id !== commentId;
+        });
+      });
   }
 }
