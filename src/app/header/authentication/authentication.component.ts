@@ -39,7 +39,8 @@ export class AuthenticationComponent implements OnInit {
   }
   signOut(): void {
     this.googleApiService.signOut().then(() => {
-      this.currentUserService.signOut();
+      // Workaround for not updated https://github.com/angular/angular/issues/19334:
+      this.zone.run(() => this.currentUserService.signOut());
       console.log('User signed out.');
     });
   }
@@ -49,7 +50,6 @@ export class AuthenticationComponent implements OnInit {
   }
 
   onClickedOutside(e: Event) {
-    // console.log('Clicked outside:', e);
     this.isUserMenuVisible = false;
   }
 }
