@@ -46,6 +46,7 @@ import { NewPostViewComponent } from './common/posts/post-manipulation/new-post-
 import { MediumEditorComponent } from './common/posts/post-manipulation/create-post-form/medium-editor/medium-editor.component';
 import { CreatePostFormComponent } from './common/posts/post-manipulation/create-post-form/create-post-form.component';
 import { EditPostViewComponent } from './common/posts/post-manipulation/edit-post-view/edit-post-view.component';
+import { WriteCommentComponent } from './common/posts/comment/write-comment/write-comment.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { EditPostViewComponent } from './common/posts/post-manipulation/edit-pos
     NewPostViewComponent,
     MediumEditorComponent,
     CreatePostFormComponent,
-    EditPostViewComponent
+    EditPostViewComponent,
+    WriteCommentComponent
   ],
   imports: [
     BrowserModule,

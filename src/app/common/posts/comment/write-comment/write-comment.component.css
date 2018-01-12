@@ -1,0 +1,41 @@
+.write-comment-component {
+    width: 100%;
+    padding: 10px 0;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    align-self: center;
+}
+
+.write-comment-component__header{
+    margin: 5px;
+}
+
+.general-button{
+    margin: 5px;
+}
+
+.write-comment-component__input{
+    width: 100%;
+    min-height: 120px;
+    margin: 5px;
+    border-color: #d4d4d4;
+    resize: none;
+    overflow: auto;
+    border-radius: 6px;
+    padding: 0;
+}
+
+.write-comment-component__input::placeholder {
+    color: #d4d4d4;
+    background-color: #f6f6f6;
+    height: 100%;
+    width: 100%;
+    padding: 10px 15px;
+    font-family: 'Kristi', cursive;
+    font-size: 2em;
+    border-radius: 6px;
+}

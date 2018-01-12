@@ -25,17 +25,19 @@ export class OnePostViewComponent implements OnInit {
     private router: Router
   ) { }
   post$: Observable<IPost> = Observable.of();
-  postComments$: Observable<IComment[]> = Observable.of();
-  userId: number;
+  postComments: IComment[] = [];
+  private postId: number;
+  private currentUser: IUser;
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
-      const id = +param;
-      this.post$ = this.postService.getPost(id);
-      this.postComments$ = this.commentsService.getComments(id);
+      this.postId = +param;
+      this.post$ = this.postService.getPost(this.postId);
+      this.commentsService.getComments(this.postId)
+        .subscribe((comments: IComment[]) => this.postComments = comments);
       this.currentUserService.get().subscribe(user => {
-        this.userId = user ? user.id : null;
+        this.currentUser = user;
       });
     }
   }
@@ -44,10 +46,29 @@ export class OnePostViewComponent implements OnInit {
     const deletePost = confirm('Are you sure to delete this post? ');
     if (deletePost) {
       this.postService.deletePost(postId)
-      .subscribe(post => {
-        console.log('Post deleted!');
-        this.router.navigate(['users', this.userId]);
-      });
+        .subscribe(post => {
+          console.log('Post deleted!');
+          this.router.navigate(['users', this.currentUser.id]);
+        });
     }
+  }
+
+  saveComment(comment) {
+    this.commentsService
+      .postComment(this.createComment(comment))
+      .subscribe((postedComment: IComment) => {
+        console.log('Your comment: "' + comment + '" was send to server');
+        postedComment.user = this.currentUser;
+        this.postComments.push(postedComment);
+      });
+  }
+
+  private createComment(comment): IComment {
+    return {
+      postId: this.postId,
+      userId: this.currentUser.id,
+      comment: comment,
+      date: new Date().toISOString()
+    };
   }
 }

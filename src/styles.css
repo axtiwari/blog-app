@@ -559,26 +559,58 @@ html {
     font-family: 'Kristi', cursive;
     font-family: 'Amita', cursive; */
 
-button {
-    border-style: solid;
-    box-shadow: none;
+.general-button {
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #d4d4d4;
+    display: inline-block;
     cursor: pointer;
-    background-color: transparent;
+    color: #666666;
+    font-family: 'Carme', sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: bold;
+    padding: 0px 15px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+    text-decoration: none;
+    min-width: 120px;
+    height: auto;
+    height: 30px;
+    text-align: center;
 }
 
-.wrapper-container{
+.general-button[disabled]{
+    background: #d4d4d4;
+}
+
+.general-button:hover,
+.general-button:focus {
+    background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    background-color: #d4d4d4
+}
+
+.general-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.wrapper-container {
     width: 100%;
     padding-top: 50px;
 }
 
-.inner-container{
+.inner-container {
     min-height: 100vh;
     max-width: 960px;
     margin: 0 auto;
     padding: 10px;
 }
+
 @media only screen and (max-width: 690px) {
-    .inner-container{
+    .inner-container {
         width: 100%;
     }
 }

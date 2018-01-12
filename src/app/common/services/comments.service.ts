@@ -13,4 +13,8 @@ export class CommentsService {
         return this.http.get<IComment[]>(`${this.commentsUrl}?postId=${postId}&_expand=user`)
         .do(data => console.log(`got ${data.length} comments from server`));
     }
+
+    postComment(comment: IComment): Observable<IComment> {
+        return this.http.post<IComment>(this.commentsUrl, comment);
+    }
 }

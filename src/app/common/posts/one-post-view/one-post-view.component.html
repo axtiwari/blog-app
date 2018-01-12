@@ -2,9 +2,9 @@
   <article class="inner-container one-post-view-component" *ngIf="post$ | async; let post; else loading">
     <header class="one-post-view-component__header">
       <blog-person-data [user]="post.user"></blog-person-data>
-      <ng-container *ngIf="userId === post.userId">
-          <a [routerLink]="['/editPost', post.id]">Edit post</a>
-          <button (click)="deletePost(post.id)">Delete post</button>
+      <ng-container *ngIf="currentUser && currentUser.id === post.userId">
+          <a [routerLink]="['/editPost', post.id]" class="general-button">Edit post</a>
+          <button (click)="deletePost(post.id)" class="general-button">Delete post</button>
       </ng-container>
     </header>
     <section>
@@ -14,8 +14,13 @@
       <p>{{post.hashtags}}</p>
     </section>
     <footer>
-      <h3>Comments:</h3>
-      <blog-comment [comment]="comment" *ngFor="let comment of (postComments$ | async)"></blog-comment>
+      <h3 *ngIf="postComments.length === 0">No comments yet. Be first!</h3>
+      <h3 *ngIf="postComments.length > 0">Comments:</h3>
+      <blog-comment [comment]="comment" *ngFor="let comment of postComments"></blog-comment>
+      <blog-write-comment *ngIf="currentUser; else signIn"  (save)="saveComment($event)"></blog-write-comment>
+      <ng-template #signIn>
+        <p>You need to sign in to write comment</p>
+      </ng-template>
     </footer>
   </article>
   <ng-template #loading>Loading...</ng-template>

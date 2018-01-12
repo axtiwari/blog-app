@@ -1,9 +1,10 @@
 import { IUser } from './user';
 
 export interface IComment {
-    id: number;
+    id?: number;
     postId: number;
     userId: number;
     comment: string;
-    user: IUser;
+    date: string;
+    user?: IUser;
 }

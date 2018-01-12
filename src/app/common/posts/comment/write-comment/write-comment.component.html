@@ -1,0 +1,5 @@
+<div class="write-comment-component">
+  <h3 class="write-comment-component__header">Add comment:</h3>
+  <button (click)="saveComment(newComment)" class="general-button" [disabled]="!newComment">Send</button>
+  <textarea [(ngModel)]="newComment" class="write-comment-component__input" (keyup.enter)="saveComment(newComment)" placeholder="write your comment..."></textarea>
+</div>
