@@ -555,9 +555,24 @@ html {
     box-sizing: inherit;
 }
 
+
 /* font-family: 'Carme', sans-serif;
     font-family: 'Kristi', cursive;
     font-family: 'Amita', cursive; */
+
+
+/* styles for content user types in posts*/
+
+.post-content img {
+    max-width: 100%;
+    margin: 0 auto;
+    /* width: auto; */
+    display: block;
+}
+
+.post-content p {
+    margin: 5px 0;
+}
 
 .general-button {
     box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -575,15 +590,9 @@ html {
     padding: 0px 15px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #ffffff;
-    text-decoration: none;
     min-width: 120px;
-    height: auto;
     height: 30px;
     text-align: center;
-}
-
-.general-button[disabled]{
-    background: #d4d4d4;
 }
 
 .general-button:hover,
@@ -595,6 +604,13 @@ html {
 .general-button:active {
     position: relative;
     top: 1px;
+}
+
+.general-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.65;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
 }
 
 .wrapper-container {

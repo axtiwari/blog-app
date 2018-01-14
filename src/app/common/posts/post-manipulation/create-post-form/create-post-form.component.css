@@ -1,44 +1,137 @@
-.create-post-container{
+.create-post-container {
     padding: 20px 0;
 }
 
-.create-post-container__header{
+.create-post-container__header {
     display: flex;
     justify-content: space-between;
     position: relative;
 }
 
-.create-post-container__header::before{
+.create-post-container__header::before {
     content: '';
     display: block;
     height: 1px;
     width: 100%;
-    background-color:  #d4d4d4;
+    background-color: #d4d4d4;
     position: absolute;
     bottom: 0;
 }
 
-.create-post-form{
+.create-post-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.create-post-form__input {
+    padding: 5px;
+    border: none;
+    font-size: 22px;
+    margin: 40px 0 0;
+    height: 40px;
     width: 100%;
 }
 
-.create-post-form__input{
-    border: 2px solid #d4d4d4;
+.create-post-form__input:focus {
+    outline: none;
+}
+
+.create-post-form__label:before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    padding: 0;
     margin: 0;
-    color: black;
+    width: 10%;
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0px;
+    border-bottom: 5px solid #668088;
 }
 
-input::placeholder {
-    color: red;
-  }
-
-
-.create-post-form__label{
-
+.create-post-form__input:focus+label:before,
+.create-post-form__input:valid+label:before {
+    width: 100%;
+    bottom: -40px;
 }
 
-.create-post-form__button{
-
+.create-post-form__label {
+    width: 100%;
+    position: relative;
+    top: -40px;
+    height: 40px;
+    background-color: transparent;
+    white-space: nowrap;
+    font-size: 22px;
+    font-weight: bold;
+    color: #3d4144;
+    text-overflow: ellipsis;
+    cursor: text;
 }
+
+.create-post-form__input:valid+label,
+.create-post-form__input:focus+label {
+    top: -80px;
+    cursor: default;
+    font-size: 16px;
+    font-weight: normal;
+    color: #d4d4d4;
+    padding-top: 20px;
+}
+
+/* medium editor ------------- */
+
+.medium-editor-container {
+    width: 100%;
+    position: relative;
+    padding: 40px 0 0;
+    min-height: 80px;
+    margin: 0 0 40px;
+}
+
+.medium-editor-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    padding: 0;
+    margin: 0;
+    width: 10%;
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0px;
+    border-bottom: 5px solid #668088;
+}
+
+.medium-editor-container.medium-editor-container-focus::before {
+    width: 100%;
+}
+
+.medium-editor-container__header {
+    width: 100%;
+    position: absolute;
+    top: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    white-space: nowrap;
+    font-size: 22px;
+    font-weight: bold;
+    color: #3d4144;
+    cursor: text;
+}
+
+.medium-editor-container__header-focus {
+    top: 0;
+    cursor: default;
+    font-size: 16px;
+    font-weight: normal;
+    color: #d4d4d4;
+    padding-top: 20px;
+}
+/* end of medium editor ------------- */

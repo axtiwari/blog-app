@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import * as MediumEditor from 'medium-editor';
 @Component({
   selector: 'blog-medium-editor',
@@ -7,7 +7,7 @@ import * as MediumEditor from 'medium-editor';
 })
 export class MediumEditorComponent implements OnInit, AfterViewInit {
   private medium: MediumEditor;
-
+  @Output() edit: EventEmitter<boolean> = new EventEmitter;
   constructor() { }
 
   ngOnInit() {
@@ -16,16 +16,14 @@ export class MediumEditorComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.medium = new MediumEditor('.editor', {
       placeholder: { // options for placeholder
-          text: 'Type your text',
-          hideOnClick: true
+        text: '',
+        hideOnClick: true
       },
       toolbar: {
         buttons: ['bold', 'italic', 'underline', 'anchor', 'h2',
-         'h3', 'quote', 'justifyLeft', 'justifyCenter' , 'justifyRight', 'justifyFull', 'orderedlist', 'unorderedlist']
+          'h3', 'quote', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'orderedlist', 'unorderedlist']
       }
-  });
-   // this.medium.setContent('<h2>MediumEditor</h2>'); // add existing HTML into it.
-   // this.medium.getContent(0); //GET CONTENT :)
+    });
   }
 
   getContent(): string {
@@ -34,5 +32,13 @@ export class MediumEditorComponent implements OnInit, AfterViewInit {
 
   setContent(content: string): void {
     this.medium.setContent(content);
+  }
+
+  editorInFocus() {
+    this.edit.emit(true);
+  }
+
+  editorOutOfFocus() {
+    this.edit.emit(false);
   }
 }

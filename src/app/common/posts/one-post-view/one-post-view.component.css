@@ -4,6 +4,21 @@
 }
 
 .one-post-view-component__header{
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
+.one-post-view-component__section{
+    width: 100%;
+}
+
+.one-post-view-component__post{
+    width: 100%;
+}
+
+
+.one-post-view-component__footer{
+width: 100%;
+}
+

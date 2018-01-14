@@ -20,11 +20,13 @@ export class CreatePostFormComponent implements OnInit, AfterViewInit {
 
   title: string;
   hashtags: string;
+  isEditVisible = false;
 
   ngOnInit() {
     if (this.post) {
       this.title = this.post.topic;
       this.hashtags = this.hashtagParserService.getStringOfHashtags(this.post.hashtags);
+      this.isEditVisible = true;
     }
   }
 
@@ -46,5 +48,9 @@ export class CreatePostFormComponent implements OnInit, AfterViewInit {
 
   savePost(formValue) {
     this.save.emit(this.createPost(formValue));
+  }
+
+  editInFocus(focus: boolean) {
+    this.isEditVisible = focus || this.postDescription.getContent().length > 0;
   }
 }

@@ -6,13 +6,16 @@
         <h5>Draft</h5>
       </header>
       <form #createPostForm="ngForm" (ngSubmit)="savePost(createPostForm.value)" class="create-post-form">
-        <label for="post-title" class="create-post-form__label">Title</label>
-        <input type="text" placeholder="type here.." id="post-title" name="title" [ngModel]="title" class="create-post-form__input">
-        <label for="post-body" class="create-post-form__label">Write your story</label>
-        <blog-medium-editor id="post-body" #mediumEditor class="create-post-form__input"></blog-medium-editor>
-        <label for="post-footer" class="create-post-form__label">Add hashtags (#keywords #important-things #selected..) for better search</label>
-        <input type="text" id="post-footer" placeholder="hashtags.." name="hashtags" [ngModel]="hashtags" class="create-post-form__input">
-        <button type="submit" class="create-post-form__button">Create</button>
+        <input type="text" id="post-title" name="title" [ngModel]="title" class="create-post-form__input" required>
+        
+        <label for="post-title" class="create-post-form__label">What is a title of your story?</label>
+        <input type="text" id="post-footer" name="hashtags" [ngModel]="hashtags" class="create-post-form__input" required><label for="post-footer" class="create-post-form__label">Which #hashtags #keywords describes your post?</label>
+        
+        <div [ngClass]="{'medium-editor-container': true, 'medium-editor-container-focus': isEditVisible}">
+            <h3 [ngClass]="{'medium-editor-container__header': true, 'medium-editor-container__header-focus': isEditVisible}">What do you want to tell??</h3>  
+          <blog-medium-editor #mediumEditor (edit)="editInFocus($event)"></blog-medium-editor>
+        </div>
+        <button type="submit" class="general-button" [disabled]="createPostForm.invalid || !isEditVisible">Create</button>
       </form>
     </section>
   </div>

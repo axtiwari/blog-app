@@ -24,7 +24,8 @@
     margin: 5px;
     border-color: #d4d4d4;
     resize: none;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 6px;
     padding: 0;
 }
