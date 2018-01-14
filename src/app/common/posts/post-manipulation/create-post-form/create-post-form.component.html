@@ -7,12 +7,11 @@
       </header>
       <form #createPostForm="ngForm" (ngSubmit)="savePost(createPostForm.value)" class="create-post-form">
         <input type="text" id="post-title" name="title" [ngModel]="title" class="create-post-form__input" required autofocus>
-        
         <label for="post-title" class="create-post-form__label">What is a title of your story?</label>
-        <input type="text" id="post-footer" name="hashtags" [ngModel]="hashtags" class="create-post-form__input" required><label for="post-footer" class="create-post-form__label">Which #hashtags #keywords describes your post?</label>
-        
+        <input type="text" id="post-footer" name="hashtags" [ngModel]="hashtags" class="create-post-form__input" required>
+        <label for="post-footer" class="create-post-form__label">Which #hashtags #keywords describes your post?</label>
         <div [ngClass]="{'medium-editor-container': true, 'medium-editor-container-focus': isEditVisible}">
-            <h3 [ngClass]="{'medium-editor-container__header': true, 'medium-editor-container__header-focus': isEditVisible}">What do you want to tell??</h3>  
+          <h3 [ngClass]="{'medium-editor-container__header': true, 'medium-editor-container__header-focus': isEditVisible}">What do you want to tell??</h3>
           <blog-medium-editor #mediumEditor (edit)="editInFocus($event)"></blog-medium-editor>
         </div>
         <button type="submit" class="general-button" [disabled]="createPostForm.invalid || !isEditVisible">Create</button>

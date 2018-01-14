@@ -1,40 +1,163 @@
-.contact-component{
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 100vh;
-    box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.7);
-    background-color: #84907d;
-}
+        .contact-component {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+            height: 100vh;
+            box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.7);
+            background-color: #3d4144;
+            padding: 0;
+        }
 
-.contact-component__info-container{
-    width: 50%;
-    height: 100%;
-    padding: 50px;
-}
+        .contact-component__info-container {
+            width: 50%;
+            height: 100%;
+            padding: 50px;
+            color: white;
+            font-size: 1.3em;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-.contact-component__form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+        .contact-component__info-container>p{
+            margin: 10px 0;
+        }
 
-blog-map{
-    width: 50%;
-    height: 100%;
-}
+        .contact-component__header{
+            margin: 10px 0;
+            position: relative;
+        }
 
-@media only screen and (max-width: 690px){
-    .contact-component{
-        flex-wrap: wrap;
-    }
-    .contact-component__info-container{
-        width: 100%;
-        height: 50%;
-    }
-    blog-map{
-        width: 100%;
-        height: 50%;
-    }
-    
-}
+        .contact-component__header::before{
+            content: '';
+            display: block;
+            position: absolute;
+            height: 25px;
+            width: 25px;
+            top: 0;
+            right: 0;
+            border: 1px solid white;  
+            border-radius: 100%;
+        }
+        .contact-component__header::after{
+            content: '';
+            display: block;
+            position: absolute;
+            height: 12px;
+            width: 12px;
+            top: 0;
+            right: 30px;
+            border: 1px solid white;  
+            border-radius: 100%;
+        }
+
+        .contact-form {
+            position: relative;
+            width: 100%;
+            padding: 30px 25px;
+            background-color: white;
+            border-radius: 40px;
+            font-family: 'Amita', cursive;
+        }
+
+        .contact-form__button {
+            margin-top: 20px;
+            background-color: white;
+            border: 1px solid #3d4144;
+            line-height: 0;
+            font-size: 17px;
+            padding: 20px 15px;
+            border-radius: 60px;
+            color: #3d4144;
+            cursor: pointer;
+        }
+
+        .contact-form__button:hover,
+        .contact-form__button:focus {
+            color: white;
+            background-color: #3d4144;
+        }
+
+        .contact-form__question {
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .contact-form__question:first-of-type {
+            padding-top: 0;
+        }
+
+        .contact-form__question:last-of-type {
+            padding-bottom: 0;
+        }
+
+        label {
+            color: #3d4144;
+            font-size: 17px;
+            padding: 10px 15px;
+            display: block;
+            position: absolute;
+            margin-top: -40px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        input {
+            background-color: none;
+            border: 1px solid #3d4144;
+            line-height: 0;
+            font-size: 17px;
+            width: 100%;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 60px;
+            color: #3d4144;
+            position: relative;
+            z-index: 1;
+        }
+
+        input:focus {
+            outline: none;
+            background: #3d4144;
+            color: white;
+            margin-top: 20px;
+        }
+
+        input:valid {
+            margin-top: 20px;
+        }
+
+        input:focus~label {
+            transition: all .35s ease-in-out;
+            transform: translate( 0, -35px);
+        }
+
+        input:valid~label {
+            text-transform: uppercase;
+            font-style: italic;
+            transition: all .35s ease-in-out;
+            transform:  translate( 5px, -35px) scale(0.6);
+        }
+        /* ------------- */
+
+        blog-map {
+            width: 50%;
+            height: 100%;
+        }
+
+        @media only screen and (max-width: 690px) {
+            .contact-component {
+                flex-wrap: wrap;
+                height: 200vh;
+            }
+
+            .contact-component__info-container {
+                width: 100%;
+                height: 50%;
+            }
+            blog-map {
+                width: 100%;
+                height: 50%;
+            }
+        }
