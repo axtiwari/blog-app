@@ -1,4 +1,4 @@
-#Steps to run the project
+# Steps to run the project
 
 1. Clone the repository
 2. The project uses json-server. You need to install it: 
