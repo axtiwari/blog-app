@@ -6,7 +6,7 @@
         <h5>Draft</h5>
       </header>
       <form #createPostForm="ngForm" (ngSubmit)="savePost(createPostForm.value)" class="create-post-form">
-        <input type="text" id="post-title" name="title" [ngModel]="title" class="create-post-form__input" required>
+        <input type="text" id="post-title" name="title" [ngModel]="title" class="create-post-form__input" required autofocus>
         
         <label for="post-title" class="create-post-form__label">What is a title of your story?</label>
         <input type="text" id="post-footer" name="hashtags" [ngModel]="hashtags" class="create-post-form__input" required><label for="post-footer" class="create-post-form__label">Which #hashtags #keywords describes your post?</label>
