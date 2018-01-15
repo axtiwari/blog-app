@@ -3,8 +3,8 @@
   <article class="article-component">
     <header class="article-component__header">
       <blog-person-data [user]="postData.user"></blog-person-data>
-      <div class="content-article__post-date">
-        <span class="content-article__date-header">Posted on:</span>
+      <div class="post-date">
+        <span>Posted on:</span>
         <span>{{postData.date | date: "longDate"}}</span>
       </div>
     </header>
@@ -12,7 +12,7 @@
       <h5 class="article-component__topic">{{postData.topic}}</h5>
       <p class="article-component__paragraph">{{postData.descriptionHtml | stripHtml | cutContent}}</p>
       <footer class="article-component__hashtags">
-        <a [routerLink]="['/posts']" [queryParams]="{q: tag}" class="article-component__hashtag-item" *ngFor = "let tag of postData.hashtags">{{tag}}</a>
+        <a [routerLink]="['/posts']" [queryParams]="{q: tag}" class="hashtag" *ngFor = "let tag of postData.hashtags">{{tag}}</a>
       </footer>
     </section>
   </article>

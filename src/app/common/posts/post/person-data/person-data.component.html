@@ -1,6 +1,6 @@
-<a class="content-article__person-data" [routerLink]="['/users', user.id]">
-    <div class="content-article__avatar-container">
-      <img class="content-article__avatar-img" src="{{user.avatarImageUrl}}" alt="avatar">
-    </div>
-    <h5 class="content-article__person-info">{{user.name}}</h5>
-  </a>
+<a class="person-data" [routerLink]="['/users', user.id]">
+  <div class="person-data__avatar-container">
+    <img class="person-data__avatar-img" src="{{user.avatarImageUrl}}" alt="avatar">
+  </div>
+  <h5 class="person-data__person-info">{{user.name}}</h5>
+</a>

@@ -1,28 +1,27 @@
-.content-article__person-data{
+.person-data {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
     height: 100%;
     align-items: center;
     text-decoration: none;
-  }
-  
-  
-  .content-article__avatar-container{
+}
+
+.person-data__avatar-container {
     height: 36px;
     width: 36px;
     margin: 2px;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 100%;
-  }
-  
-  .content-article__avatar-img{
+    flex-shrink: 0;
+}
+
+.person-data__avatar-img {
     max-width: 100%;
-  
-  }
-  
-  .content-article__person-info{
+}
+
+.person-data__person-info {
     color: black;
     margin: 0;
-  }
+}

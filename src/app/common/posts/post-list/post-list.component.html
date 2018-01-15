@@ -1,10 +1,10 @@
-<div class="blogs-section">
-    <section class="content">
-        <p *ngIf="showTotalCount">Found {{total}} posts on your query. </p>
-        <p *ngIf="total===0 && showTotalCount">Try to search with other combination of words.</p>
-        <h2 *ngIf="total!==0" class="content__header">Latest posts</h2>
-        <h2 *ngIf="total===0 && userId">User doesn`t have posts yet</h2>
+<div class="wrapper-container">
+    <section class="inner-container">
+        <p *ngIf="showTotalCount" class="post-list__info">Found {{total}} posts on your query. </p>
+        <p *ngIf="total===0 && showTotalCount" class="post-list__info">Try to search with other combination of words.</p>
+        <h2 *ngIf="total!==0" class="post-list__header">Latest posts</h2>
+        <h2 *ngIf="total===0 && userId" class="post-list__header">User doesn`t have posts yet</h2>
         <blog-post [postData]="post" *ngFor="let post of posts"></blog-post>
-        <a *ngIf="showMore" [routerLink]="'/posts'">Read more posts..</a>
+        <a class="general-button" *ngIf="showMore" [routerLink]="'/posts'">Read more posts..</a>
     </section>
 </div>

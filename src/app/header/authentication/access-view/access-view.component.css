@@ -1,25 +1,26 @@
-.overlay{
+.overlay {
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 0; 
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
 }
 
-.form-container{
-    z-index: 3;
+.form-container {
+    z-index: 4;
     position: fixed;
     top: 0;
     left: 0;
     height: 70vh;
     width: 70%;
     margin: 15vh 15%;
-    background-color: #f3e8e8; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background-color: #f3e8e8;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -27,40 +28,65 @@
     justify-content: space-between;
 }
 
-.form-container__close{
+.form-container:before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 40px solid #d4d4d4;
+}
+
+.form-container:after{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 20px solid #668088;
+}
+
+
+.form-container__close {
     border-width: 1px;
     padding: 2px;
     border-radius: 100%;
     height: 40px;
     width: 40px;
-    vertical-align: middle;
     border-color: black;
     font-size: 33px;
     position: absolute;
     top: 5px;
     right: 5px;
+    background-color: transparent;
 }
 
-.form-container__close:hover{
-    background-color: grey;
+.form-container__close:hover {
+    background-color: #d4d4d4;
 }
 
+.form-container__close:active {
+    top: 6px;
+}
 
-.logo-container{
+.logo-container {
     height: 50px;
     display: block;
     width: 100px;
 }
 
-.logo{
+.logo {
     max-height: 100%;
 }
 
 @media only screen and (max-width: 690px) {
-    .form-container{
+    .form-container {
         height: 100%;
         width: 100%;
         margin: 0;
         padding: 25px;
+        border-radius: 0;
     }
 }

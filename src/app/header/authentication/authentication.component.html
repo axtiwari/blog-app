@@ -3,6 +3,6 @@
     <blog-user-menu (signOut)="signOut()" [userId]="user.id" [hidden]="!isUserMenuVisible"></blog-user-menu>
 </ng-container>
 <ng-template #signIn>
-    <button *ngIf="!isUserAccount" (click)="showPopUp()"  class="header-component_button">Sign in</button>
+    <button *ngIf="!isUserAccount" (click)="showPopUp()"  class="general-button">Sign in</button>
 </ng-template>
 <blog-access-view (close)="hidePopUp()" [hidden]="!isAccessPopupVisible"></blog-access-view>
