@@ -1,0 +1,26 @@
+
+.hashtag {
+    font-size: 0.875em;
+    margin: 2px;
+    padding: 2px 5px;
+    font-family: monospace;
+    font-weight: bold;
+    background-color: transarent;
+    border-radius: 6px;
+    border: 1px solid #0f6c88;
+    display: inline-block;
+    cursor: pointer;
+    color:  black;
+    text-decoration: none;
+}
+
+.hashtag:hover {
+    position: relative;
+    transform: scale(1.1,1.1);
+    background-color: white;
+
+}
+
+.hashtag:active{
+  top: 2px;
+}

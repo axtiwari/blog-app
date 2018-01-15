@@ -12,7 +12,7 @@
       <span class="one-post-view-component__post-date">Posted on: {{post.date | date: "longDate"}}</span>
       <div [innerHtml]="post.descriptionHtml" class="one-post-view-component__post post-content"></div>
       <div>
-        <span *ngFor="let hashtag of post.hashtags" class="hashtag">{{hashtag}}</span>
+        <blog-hashtag *ngFor="let hashtag of post.hashtags" [hashtag]="hashtag"></blog-hashtag>
       </div>
     </section>
     <footer class="one-post-view-component__footer">

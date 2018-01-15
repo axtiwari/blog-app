@@ -48,6 +48,7 @@ import { CreatePostFormComponent } from './common/posts/post-manipulation/create
 import { EditPostViewComponent } from './common/posts/post-manipulation/edit-post-view/edit-post-view.component';
 import { WriteCommentComponent } from './common/posts/comment/write-comment/write-comment.component';
 import { LoadingComponent } from './common/loading/loading.component';
+import { HashtagComponent } from './common/posts/hashtag/hashtag.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { LoadingComponent } from './common/loading/loading.component';
     CreatePostFormComponent,
     EditPostViewComponent,
     WriteCommentComponent,
-    LoadingComponent
+    LoadingComponent,
+    HashtagComponent
   ],
   imports: [
     BrowserModule,
