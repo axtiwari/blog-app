@@ -13,7 +13,7 @@
 
 `npm start` or `ng serve`
 
-The app will automatically navigate to `http://localhost:4200/`
+The app will automatically navigate to `http://localhost:4200/` (don't use any other localhost port - google api for registration works only there)
 
 
 # ProjectBlog
