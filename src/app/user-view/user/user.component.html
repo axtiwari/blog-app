@@ -1,17 +1,10 @@
-<div *ngIf="user$ | async; let user; else loading" class="container">
-  <header class="header-container">
-    <div>
-      <h1>{{user.name}}</h1>
-    </div>
-    <div>
-      <img [src]="user.avatarImageUrl" alt="avatar" class="user-img">
-    </div>
-  </header>
-  <div class="following-container">
-    <button class="simple-btn">0 Following</button>
-    <button class="simple-btn">0 Followerss</button>
+<div class="header-container" *ngIf="user$ | async; let user; else loading">
+  <div>
+      <h2>{{user.name}}</h2>
+      <span class="header-container__details">Total posts: {{postsCount}}</span>
+      <span class="header-container__details">Total comments: {{commentsCount}}</span>
   </div>
-  <button class="follow-button">Follow</button>  
+  <img [src]="user.avatarImageUrl" alt="avatar" class="user-img">
 </div>
 <ng-template #loading>
   <blog-loading></blog-loading>

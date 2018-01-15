@@ -1,1 +1,5 @@
-<blog-create-post-form *ngIf="user && post" [user]="user" [post]="post" (save)="updatePost($event)"></blog-create-post-form>
+<div class="wrapper-container">
+    <div class="inner-container">
+        <blog-create-post-form *ngIf="user && post" [user]="user" [post]="post" (save)="updatePost($event)"></blog-create-post-form>
+    </div>
+</div>

@@ -9,16 +9,25 @@
     justify-content: space-between;
 }
 
+.button-set{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+}
+
 .one-post-view-component__section{
     width: 100%;
 }
 
-.one-post-view-component__post{
-    width: 100%;
+.one-post-view-component__post-date{
+    color: grey;
 }
 
+.one-post-view-component__post{
+    width: 100%;
+    margin-top: 20px; 
+}
 
 .one-post-view-component__footer{
 width: 100%;
 }
-

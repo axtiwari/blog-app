@@ -1,4 +1,6 @@
-<section class="user-view">
+<section class="wrapper-container">
+  <div class="inner-container">
     <blog-user [id]="id$ | async"></blog-user>
     <blog-scrollable-posts [userId]="id$ | async"></blog-scrollable-posts>
-  </section>
+  </div>
+</section>

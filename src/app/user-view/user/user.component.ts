@@ -14,9 +14,15 @@ export class UserComponent implements OnInit {
   @Input() id: number;
 
   user$: Observable<IUser>;
+  postsCount: number;
+  commentsCount: number;
 
   ngOnInit() {
-    this.user$ = this.userService.getUser(this.id);
+    this.user$ = this.userService.getUser(this.id)
+    .do((user: IUser) => {
+      this.postsCount = user.posts.length;
+      this.commentsCount = user.comments.length;
+    });
   }
 
 }

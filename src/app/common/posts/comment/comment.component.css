@@ -1,0 +1,12 @@
+.comment-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #668088;
+}
+
+.comment-container__comment {
+    width: 100%;
+}

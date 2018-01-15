@@ -1,6 +1,6 @@
-<div>
+<div class="comment-container">
     <blog-person-data [user]="comment.user"></blog-person-data>
     <p>{{comment.date | date: "longDate"}}</p>
-    <button *ngIf="showDeleteButton" (click)="deleteClicked()">Delete</button>
-    <p>{{comment.comment}}</p>
+    <button *ngIf="showDeleteButton" (click)="deleteClicked()" class="general-button button-delete">Delete</button>
+    <p class="comment-container__comment">{{comment.comment}}</p>
 </div>

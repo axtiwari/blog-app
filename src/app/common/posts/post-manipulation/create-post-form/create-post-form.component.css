@@ -1,5 +1,6 @@
 .create-post-container {
     padding: 20px 0;
+    width: 100%;
 }
 
 .create-post-container__header {
@@ -71,6 +72,7 @@
     color: #3d4144;
     text-overflow: ellipsis;
     cursor: text;
+    white-space: nowrap;
 }
 
 .create-post-form__input:valid+label,

@@ -14,9 +14,9 @@
       width: 150px;
       height: 150px;
       margin: 50px;
-      border-radius: 50%;
+      border-radius: 100%;
       border: 3px solid transparent;
-      border-top-color: #9370DB;
+      border-top-color: #f3e8e8;
       -webkit-animation: spin 2s linear infinite;
       animation: spin 2s linear infinite;
   }
@@ -27,9 +27,9 @@
       left: 5px;
       right: 5px;
       bottom: 5px;
-      border-radius: 50%;
+      border-radius: 100%;
       border: 3px solid transparent;
-      border-top-color: #BA55D3;
+      border-top-color: #668088;
       -webkit-animation: spin 3s linear infinite;
       animation: spin 3s linear infinite;
   }
@@ -40,9 +40,9 @@
       left: 15px;
       right: 15px;
       bottom: 15px;
-      border-radius: 50%;
+      border-radius: 100%;
       border: 3px solid transparent;
-      border-top-color: #FF00FF;
+      border-top-color: #3d4144;
       -webkit-animation: spin 1.5s linear infinite;
       animation: spin 1.5s linear infinite;
   }

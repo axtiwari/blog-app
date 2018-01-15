@@ -2,16 +2,18 @@
   <article class="inner-container one-post-view-component">
     <header class="one-post-view-component__header">
       <blog-person-data [user]="post.user"></blog-person-data>
-      <div *ngIf="currentUser && currentUser.id === post.userId" class="one-post-view-component__button-container">
-        <a [routerLink]="['/editPost', post.id]" class="general-button">Edit post</a>
-        <button (click)="deletePost(post.id)" class="general-button">Delete post</button>
+      <div *ngIf="currentUser && currentUser.id === post.userId" class="button-set">
+        <a [routerLink]="['/editPost', post.id]" class="general-button button-edit">Edit post</a>
+        <button (click)="deletePost(post.id)" class="general-button button-delete">Delete post</button>
       </div>
     </header>
     <section class="one-post-view-component__section">
       <h2>{{post.topic}}</h2>
-      <span>Posted on: {{post.date | date: "longDate"}}</span>
+      <span class="one-post-view-component__post-date">Posted on: {{post.date | date: "longDate"}}</span>
       <div [innerHtml]="post.descriptionHtml" class="one-post-view-component__post post-content"></div>
-      <p>{{post.hashtags}}</p>
+      <div>
+        <span *ngFor="let hashtag of post.hashtags" class="hashtag">{{hashtag}}</span>
+      </div>
     </section>
     <footer class="one-post-view-component__footer">
       <h3 *ngIf="postComments.length === 0">No comments yet. Be first!</h3>
@@ -26,5 +28,5 @@
   </article>
 </div>
 <ng-template #loading>
-    <blog-loading></blog-loading>
-  </ng-template>
+  <blog-loading></blog-loading>
+</ng-template>
