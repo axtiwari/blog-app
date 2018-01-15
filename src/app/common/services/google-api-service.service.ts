@@ -24,8 +24,9 @@ export class GoogleApiService {
                 'longtitle': true,
                 'theme': 'light',
                 'onsuccess': (googleUser) =>  // call onSign in method in google-sign-in-button.component
-                // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334:
-                    this.ngZone.run(() => observer.next(googleUser))
+                    // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334:
+                    this.ngZone.run(() => observer.next(googleUser)),
+                'onfailure': (error) => console.log(error)
             });
         });
     }

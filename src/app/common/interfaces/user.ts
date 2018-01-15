@@ -6,6 +6,6 @@ export interface IUser {
     avatarImageUrl: string;
     id?: number;
     googleId?: string;
-    posts: IPost[];
-    comments: IComment[];
+    posts?: IPost[];
+    comments?: IComment[];
 }

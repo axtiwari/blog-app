@@ -2,8 +2,8 @@
   <a class="header-component__logo-container" href="#">
     <img class="header-component__logo" src="/assets/pictures/logo.png" alt="logo">
   </a>
-  <nav (clickOutside)="onClickedOutsideCloseNav($event)" (click)="showMenu()" [ngClass]="{'header-component__navigation': true, 'header-component__navigation--visibility': isMenuVisible}">
-    <ul class="nav-items-component">
+  <nav (clickOutside)="onClickedOutsideCloseNav($event)" (click)="showMenu()" class="header-component__navigation">
+    <ul class="nav-items-component" [ngClass]="{'nav-items-component--visible': isMenuVisible}">
       <li class="nav-items-component__nav-btn">
         <a class="nav-items-component__nav-content" href="#home">Home</a>
       </li>

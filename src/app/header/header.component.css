@@ -70,15 +70,12 @@
 
 @media only screen and (max-width: 690px) {
     .header-component__navigation {
-        visibility: hidden;
         order: -1;
         width: 50px;
         height: 50px;
         cursor: pointer;
     }
-    .header-component__navigation--visibility {
-        visibility: visible;
-    }
+
     .header-component__navigation::before {
         content: "";
         visibility: visible;
@@ -103,7 +100,13 @@
         left: 0;
         padding: 0;
         margin: 0;
+        visibility: hidden;
     }
+
+    .nav-items-component--visible {
+        visibility: visible;
+    }
+
     .nav-items-component__nav-btn {
         width: 100%;
     }
