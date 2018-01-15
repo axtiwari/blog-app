@@ -30,6 +30,8 @@ export class OnePostViewComponent implements OnInit {
   currentUser: IUser;
 
   ngOnInit() {
+    window.scrollTo(0, 0);
+
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
       this.postId = +param;

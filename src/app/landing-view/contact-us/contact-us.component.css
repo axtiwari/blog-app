@@ -11,9 +11,8 @@
         .contact-component__info-container {
             width: 50%;
             height: 100%;
-            padding: 50px;
+            padding: 40px;
             color: white;
-            font-size: 1.3em;
             display: flex;
             flex-wrap: nowrap;
             flex-direction: column;
@@ -21,7 +20,7 @@
         }
 
         .contact-component__info-container>p{
-            margin: 10px 0;
+            margin: 5px 0;
         }
 
         .contact-component__header{

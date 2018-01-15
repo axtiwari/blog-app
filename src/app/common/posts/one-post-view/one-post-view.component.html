@@ -1,5 +1,5 @@
-<div class="wrapper-container">
-  <article class="inner-container one-post-view-component" *ngIf="post$ | async; let post; else loading">
+<div class="wrapper-container" *ngIf="post$ | async; let post; else loading">
+  <article class="inner-container one-post-view-component">
     <header class="one-post-view-component__header">
       <blog-person-data [user]="post.user"></blog-person-data>
       <div *ngIf="currentUser && currentUser.id === post.userId" class="one-post-view-component__button-container">
@@ -9,20 +9,22 @@
     </header>
     <section class="one-post-view-component__section">
       <h2>{{post.topic}}</h2>
-      <span>Posted on: {{post.date}}</span>
+      <span>Posted on: {{post.date | date: "longDate"}}</span>
       <div [innerHtml]="post.descriptionHtml" class="one-post-view-component__post post-content"></div>
       <p>{{post.hashtags}}</p>
     </section>
     <footer class="one-post-view-component__footer">
       <h3 *ngIf="postComments.length === 0">No comments yet. Be first!</h3>
       <h3 *ngIf="postComments.length > 0">Comments:</h3>
-      <blog-comment [comment]="comment" [showDeleteButton]="currentUser && (currentUser.id === postId || currentUser.id===comment.userId)" (deleteComment)="deleteComment($event)"
-        *ngFor="let comment of postComments"></blog-comment>
+      <blog-comment [comment]="comment" [showDeleteButton]="currentUser && (currentUser.id === postId || currentUser.id===comment.userId)"
+        (deleteComment)="deleteComment($event)" *ngFor="let comment of postComments"></blog-comment>
       <blog-write-comment *ngIf="currentUser; else signIn" (save)="saveComment($event)"></blog-write-comment>
       <ng-template #signIn>
         <p>You need to sign in to write comment</p>
       </ng-template>
     </footer>
   </article>
-  <ng-template #loading>Loading...</ng-template>
 </div>
+<ng-template #loading>
+    <blog-loading></blog-loading>
+  </ng-template>

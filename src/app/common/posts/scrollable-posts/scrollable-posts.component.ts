@@ -31,6 +31,7 @@ export class ScrollablePostsComponent implements OnInit {
   subject = new BehaviorSubject<number>(1);
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.searchQuery$.subscribe((searchQuery) => {
       this.page = 1;
       this.query = searchQuery;
