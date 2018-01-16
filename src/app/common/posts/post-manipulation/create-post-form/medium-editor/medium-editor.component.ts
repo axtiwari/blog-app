@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import * as MediumEditor from 'medium-editor';
+import { MediumEditorExtensions } from '../../../../services/mediumEditorExtensions.service';
+
 @Component({
   selector: 'blog-medium-editor',
   templateUrl: './medium-editor.component.html',
@@ -7,8 +9,10 @@ import * as MediumEditor from 'medium-editor';
 })
 export class MediumEditorComponent implements OnInit, AfterViewInit {
   private medium: MediumEditor;
+
   @Output() edit: EventEmitter<boolean> = new EventEmitter;
-  constructor() { }
+
+  constructor(private mediumEditorEtensions: MediumEditorExtensions) { }
 
   ngOnInit() {
   }
@@ -20,8 +24,10 @@ export class MediumEditorComponent implements OnInit, AfterViewInit {
         hideOnClick: true
       },
       toolbar: {
-        buttons: ['bold', 'italic', 'underline', 'anchor', 'h2',
-          'h3', 'quote', 'justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'orderedlist', 'unorderedlist']
+        buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3', 'quote', 'orderedlist', 'unorderedlist', 'highlighter']
+      },
+      extensions: {
+        'highlighter': this.mediumEditorEtensions.createHighligterButton()
       }
     });
   }

@@ -27,13 +27,14 @@ html {
 .post-content img {
     max-width: 100%;
     margin: 0 auto;
-    /* width: auto; */
     display: block;
 }
 
 .post-content p {
     margin: 5px 0;
 }
+
+/* general styles*/
 
 .general-button {
     box-shadow: inset 0px 1px 0px 0px #ffffff;

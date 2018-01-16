@@ -49,6 +49,7 @@ import { EditPostViewComponent } from './common/posts/post-manipulation/edit-pos
 import { WriteCommentComponent } from './common/posts/comment/write-comment/write-comment.component';
 import { LoadingComponent } from './common/loading/loading.component';
 import { HashtagComponent } from './common/posts/hashtag/hashtag.component';
+import { MediumEditorExtensions } from './common/services/mediumEditorExtensions.service';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { HashtagComponent } from './common/posts/hashtag/hashtag.component';
     GoogleApiService,
     AuthenticationGuard,
     HtmlParserService,
-    HashtagParserService
+    HashtagParserService,
+    MediumEditorExtensions
   ],
   bootstrap: [AppComponent]
 })
