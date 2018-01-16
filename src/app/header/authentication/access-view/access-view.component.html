@@ -5,6 +5,7 @@
     <img class="logo" src="/assets/pictures/logo.png" alt="logo">
   </a>
   <h2>Welcome to OV!</h2>
-  <blog-google-sign-in-button (click)="closePopUp()"></blog-google-sign-in-button>
+  <div class="form-container__error-message" *ngIf="errorMessage">{{errorMessage}}</div>
+  <blog-google-sign-in-button (success)="closePopUp()" (error)="showErrorButton($event)"></blog-google-sign-in-button>
   <p>Creating an account means you're okay with OV's Terms of Service, Privacy Policy.</p>
 </section>

@@ -9,11 +9,17 @@ export class AccessViewComponent implements OnInit {
 
   constructor() { }
   @Output() close = new EventEmitter();
+  errorMessage = '';
 
   ngOnInit() {
   }
 
   closePopUp(): void {
     this.close.emit();
+    this.errorMessage = '';
+  }
+
+  showErrorButton(error: string) {
+    this.errorMessage =  `You can't sign in now: ${error}`;
   }
 }

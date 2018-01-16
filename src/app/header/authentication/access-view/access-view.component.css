@@ -81,6 +81,10 @@
     max-height: 100%;
 }
 
+.form-container__error-message{
+    color: red;
+}
+
 @media only screen and (max-width: 690px) {
     .form-container {
         height: 100%;

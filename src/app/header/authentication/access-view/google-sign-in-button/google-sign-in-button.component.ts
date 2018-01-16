@@ -1,9 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../../../common/services/user.service';
 import { CurrentUserService } from '../../../../common/services/current-user.service';
 import { IUser } from '../../../../common/interfaces/user';
 import { GoogleApiService } from '../../../../common/services/google-api-service.service';
-
 @Component({
   selector: 'blog-google-sign-in-button',
   templateUrl: './google-sign-in-button.component.html',
@@ -17,13 +16,22 @@ export class GoogleSignInButtonComponent implements OnInit, AfterViewInit {
     private googleApiService: GoogleApiService
   ) { }
 
+  @Output() error: EventEmitter<string> = new EventEmitter();
+  @Output() success: EventEmitter<any> = new EventEmitter();
   user: IUser;
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
-    this.googleApiService.renderSignInButton('google-btn').subscribe((googleUser) => this.onSignIn(googleUser));
+    this.googleApiService.renderSignInButton('google-btn')
+    .subscribe(
+      (googleUser) => {
+        this.onSignIn(googleUser);
+        this.success.emit();
+      },
+      (error) => this.error.emit(error.error)
+    );
   }
 
   onSignIn(googleUser) {

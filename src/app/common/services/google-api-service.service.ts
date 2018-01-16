@@ -17,6 +17,10 @@ export class GoogleApiService {
     renderSignInButton(id: string): Observable<any> {
 
         return new Observable((observer) => {
+            if (typeof gapi === 'undefined') {
+                observer.error({error: 'No internet connection'});
+                return;
+            }
             gapi.signin2.render(id, {
                 'scope': 'profile',
                 'width': 240,
@@ -26,7 +30,7 @@ export class GoogleApiService {
                 'onsuccess': (googleUser) =>  // call onSign in method in google-sign-in-button.component
                     // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334:
                     this.ngZone.run(() => observer.next(googleUser)),
-                'onfailure': (error) => console.log(error)
+                'onfailure': (error) => observer.error(error)
             });
         });
     }
