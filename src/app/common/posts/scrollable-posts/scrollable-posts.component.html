@@ -1,5 +1,5 @@
 <div *ngIf="postData$ | async; let post; else loading " infiniteScroll [infiniteScrollDistance]="0.5" (scrolled)="onScroll()">
-  <blog-post-list [userId]="userId" [posts]="post.result" [showTotalCount]="searchQuery$ | async" [total]="post.total"></blog-post-list>
+  <blog-post-list [userId]="userId" [posts]="post.result" [showTotalCount]="searchQuery" [total]="post.total"></blog-post-list>
 </div>
 <ng-template #loading>
   <blog-loading></blog-loading>

@@ -24,7 +24,7 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit() {
     this.currentUserService.get().subscribe((user: IUser) => {
       console.log(user);
-      // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334:
+      // Workaround for not updated on the component view https://github.com/angular/angular/issues/19334
       this.zone.run(() => this.user = user);
     }
     );
@@ -39,7 +39,7 @@ export class AuthenticationComponent implements OnInit {
   }
   signOut(): void {
     this.googleApiService.signOut().then(() => {
-      // Workaround for not updated https://github.com/angular/angular/issues/19334:
+      // Workaround for not updated https://github.com/angular/angular/issues/19334
       this.zone.run(() => this.currentUserService.signOut());
       console.log('User signed out.');
     });

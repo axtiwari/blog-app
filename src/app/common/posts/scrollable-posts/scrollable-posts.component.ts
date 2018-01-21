@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
@@ -12,54 +12,51 @@ import { IPostData } from '../../interfaces/postData';
   templateUrl: './scrollable-posts.component.html',
   styleUrls: ['./scrollable-posts.component.css']
 })
-export class ScrollablePostsComponent implements OnInit {
+export class ScrollablePostsComponent implements OnInit, OnChanges {
 
   constructor(private postService: PostService) { }
 
   @Input() userId?: number;
 
-  @Input() searchQuery$?: Observable<string> = Observable.of('');
+  @Input() searchQuery? = '';
 
   private page = 1;
 
   private isLoaded = false;
 
-  private query: string;
-
   postData$: Observable<IPostData>;
 
-  subject = new BehaviorSubject<number>(1);
+  private pageSubject: BehaviorSubject<number>;
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.searchQuery$.subscribe((searchQuery) => {
+  }
+
+  ngOnChanges(): void {
       this.page = 1;
-      this.query = searchQuery;
-      this.subject = new BehaviorSubject<number>(1);
-      if (searchQuery) {
-        console.log(`searched by "${searchQuery}"`);
+      this.pageSubject = new BehaviorSubject<number>(1);
+      if (this.searchQuery) {
+        console.log(`searched by "${this.searchQuery}"`);
       }
 
-      this.postData$ = this.subject
+      this.postData$ = this.pageSubject
         .switchMap((page: number) => {
-          return this.postService.getPosts(page, 10, this.userId, this.query);
+          return this.postService.getPosts(page, 10, this.userId, this.searchQuery);
         })
         .do((postData: IPostData) => {
           if (postData.result.length < 10) {
-            this.subject.complete();
+            this.pageSubject.complete();
           }
           this.isLoaded = true;
         })
         .scan((acc: IPostData, cur: IPostData) => {
           return { result: acc.result.concat(cur.result), total: cur.total };
         }, { result: [], total: null });
-    }
-    );
   }
 
   onScroll() {
-    if (this.isLoaded && !this.subject.isStopped) {
-      this.subject.next(++this.page);
+    if (this.isLoaded && !this.pageSubject.isStopped) {
+      this.pageSubject.next(++this.page);
       console.log(`infinite scroll event triggered, page: ${this.page}`);
     }
   }

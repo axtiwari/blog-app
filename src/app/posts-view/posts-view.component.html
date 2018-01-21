@@ -1,5 +1,5 @@
 <div class="wrapper-container">
     <div class="inner-container">
-        <blog-scrollable-posts [searchQuery$]="searchQuery$"></blog-scrollable-posts>
+        <blog-scrollable-posts [searchQuery]="searchQuery$ | async"></blog-scrollable-posts>
     </div>
 </div>

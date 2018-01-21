@@ -101,7 +101,7 @@ import { MediumEditorExtensions } from './common/services/mediumEditorExtensions
       { path: 'newPost', component: NewPostViewComponent,  canActivate: [AuthenticationGuard]},
       { path: 'editPost/:id', component: EditPostViewComponent, canActivate: [AuthenticationGuard]}
     ]),
-    ClickOutsideModule
+    ClickOutsideModule  // https://www.npmjs.com/package/ng-click-outside
   ],
   providers: [
     PostService,
