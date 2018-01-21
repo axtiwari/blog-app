@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/switchMap';
@@ -12,7 +12,7 @@ import { IPostData } from '../../interfaces/postData';
   templateUrl: './scrollable-posts.component.html',
   styleUrls: ['./scrollable-posts.component.css']
 })
-export class ScrollablePostsComponent implements OnInit, OnChanges {
+export class ScrollablePostsComponent implements OnChanges {
 
   constructor(private postService: PostService) { }
 
@@ -28,11 +28,10 @@ export class ScrollablePostsComponent implements OnInit, OnChanges {
 
   private pageSubject: BehaviorSubject<number>;
 
-  ngOnInit() {
-    window.scrollTo(0, 0);
-  }
-
   ngOnChanges(): void {
+
+      window.scrollTo(0, 0);
+
       this.page = 1;
       this.pageSubject = new BehaviorSubject<number>(1);
       if (this.searchQuery) {
