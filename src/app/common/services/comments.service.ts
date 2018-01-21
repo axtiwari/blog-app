@@ -8,7 +8,9 @@ import { IComment } from '../interfaces/comment';
 
 export class CommentsService {
     private commentsUrl = 'http://localhost:3000/comments';
+
     constructor(private http: HttpClient) { }
+
     getComments(postId: number): Observable<IComment[]> {
         return this.http.get<IComment[]>(`${this.commentsUrl}?postId=${postId}&_expand=user`)
         .do(data => console.log(`got ${data.length} comments from server`));

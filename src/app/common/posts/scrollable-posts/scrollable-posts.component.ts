@@ -33,7 +33,7 @@ export class ScrollablePostsComponent implements OnChanges {
       window.scrollTo(0, 0);
 
       this.page = 1;
-      this.pageSubject = new BehaviorSubject<number>(1);
+      this.pageSubject = new BehaviorSubject<number>(this.page);
       if (this.searchQuery) {
         console.log(`searched by "${this.searchQuery}"`);
       }
